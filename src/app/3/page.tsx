@@ -18,8 +18,8 @@ export default function JapaneseAnime() {
 
         .anime-page {
           font-family: 'Outfit', sans-serif;
-          background: #0d0d1a;
-          color: #f0e6ff;
+          background: #0a0a16;
+          color: #eee8ff;
           min-height: 100vh;
           overflow-x: hidden;
           position: relative;
@@ -30,9 +30,10 @@ export default function JapaneseAnime() {
           position: fixed;
           top: 0; left: 0; right: 0; bottom: 0;
           background:
-            radial-gradient(ellipse at 20% 50%, rgba(255, 107, 157, 0.12) 0%, transparent 50%),
-            radial-gradient(ellipse at 80% 20%, rgba(78, 205, 255, 0.1) 0%, transparent 50%),
-            radial-gradient(ellipse at 60% 80%, rgba(255, 184, 77, 0.08) 0%, transparent 50%);
+            radial-gradient(ellipse 600px 600px at 15% 30%, rgba(255, 107, 157, 0.18) 0%, transparent 70%),
+            radial-gradient(ellipse 500px 500px at 85% 15%, rgba(78, 205, 255, 0.15) 0%, transparent 70%),
+            radial-gradient(ellipse 500px 500px at 50% 80%, rgba(167, 139, 250, 0.12) 0%, transparent 70%),
+            radial-gradient(ellipse 400px 400px at 70% 55%, rgba(255, 184, 77, 0.10) 0%, transparent 70%);
           pointer-events: none;
           z-index: 0;
         }
@@ -41,11 +42,13 @@ export default function JapaneseAnime() {
           content: '';
           position: fixed;
           top: 0; left: 0; right: 0; bottom: 0;
-          background-image: radial-gradient(circle, rgba(255,255,255,0.03) 1px, transparent 1px);
-          background-size: 20px 20px;
+          background-image: radial-gradient(circle, rgba(255,255,255,0.025) 1px, transparent 1px);
+          background-size: 24px 24px;
           pointer-events: none;
           z-index: 0;
         }
+
+        /* ===== LIQUID GLASS MIXIN ===== */
 
         /* ===== HERO ===== */
         .anime-hero {
@@ -69,7 +72,7 @@ export default function JapaneseAnime() {
           top: 50%; left: 50%;
           height: 2px;
           transform-origin: left center;
-          background: linear-gradient(90deg, transparent, rgba(255, 107, 157, 0.3), transparent);
+          background: linear-gradient(90deg, transparent, rgba(255, 107, 157, 0.25), transparent);
           animation: speed-shoot 3s linear infinite;
         }
 
@@ -86,13 +89,14 @@ export default function JapaneseAnime() {
           line-height: 1.15;
           margin: 0 0 16px;
           padding-bottom: 10px;
-          background: linear-gradient(135deg, #ff6b9d, #4ecfff, #ffb84d);
+          background: linear-gradient(135deg, #ff8fba, #6dd8ff, #ffc86e);
           background-size: 200% 200%;
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
           animation: gradient-shift 4s ease infinite;
           position: relative;
+          filter: drop-shadow(0 2px 12px rgba(255, 107, 157, 0.25));
         }
 
         @keyframes gradient-shift {
@@ -105,13 +109,16 @@ export default function JapaneseAnime() {
           font-family: 'Zen Maru Gothic', sans-serif;
           font-size: 0.85rem;
           font-weight: 700;
-          padding: 6px 24px;
-          border: 2px solid #ff6b9d;
-          color: #ff6b9d;
+          padding: 8px 28px;
+          border: 2px solid rgba(255, 107, 157, 0.5);
+          color: #ff8fba;
           letter-spacing: 4px;
           text-transform: uppercase;
           position: relative;
           margin-bottom: 24px;
+          background: rgba(255, 107, 157, 0.06);
+          border-radius: 30px;
+          backdrop-filter: blur(12px);
         }
 
         .anime-hero .kanji-badge::before,
@@ -123,8 +130,8 @@ export default function JapaneseAnime() {
         }
 
         .anime-hero .subtitle {
-          font-size: 1rem;
-          color: rgba(240, 230, 255, 0.6);
+          font-size: 1.05rem;
+          color: rgba(238, 232, 255, 0.65);
           font-weight: 300;
           letter-spacing: 2px;
         }
@@ -145,18 +152,21 @@ export default function JapaneseAnime() {
           font-weight: 600;
           letter-spacing: 3px;
           text-transform: uppercase;
-          color: rgba(240, 230, 255, 0.4);
+          color: rgba(238, 232, 255, 0.5);
           text-decoration: none;
-          padding: 8px 18px;
-          border: 1px solid rgba(255, 255, 255, 0.06);
+          padding: 8px 20px;
+          border: 1px solid rgba(255, 255, 255, 0.1);
           border-radius: 24px;
           transition: all 0.3s ease;
+          background: rgba(255, 255, 255, 0.04);
+          backdrop-filter: blur(12px);
         }
 
         .anime-nav a:hover {
-          color: #ff6b9d;
-          border-color: rgba(255, 107, 157, 0.3);
-          background: rgba(255, 107, 157, 0.06);
+          color: #fff;
+          border-color: rgba(255, 255, 255, 0.25);
+          background: rgba(255, 255, 255, 0.1);
+          box-shadow: 0 4px 20px rgba(255, 107, 157, 0.15), inset 0 1px 0 rgba(255,255,255,0.15);
         }
 
         /* ===== SECTION DIVIDER ===== */
@@ -174,8 +184,8 @@ export default function JapaneseAnime() {
         .anime-section-divider::after {
           content: '';
           flex: 1;
-          height: 2px;
-          background: linear-gradient(90deg, transparent, #ff6b9d, transparent);
+          height: 1px;
+          background: linear-gradient(90deg, transparent, rgba(255, 107, 157, 0.4), transparent);
         }
 
         .anime-section-divider h2 {
@@ -184,33 +194,34 @@ export default function JapaneseAnime() {
           font-weight: 900;
           text-transform: uppercase;
           letter-spacing: 6px;
-          color: #ff6b9d;
+          color: #ff8fba;
           white-space: nowrap;
+          text-shadow: 0 0 30px rgba(255, 107, 157, 0.3);
         }
 
         .anime-section-divider.blue::before,
         .anime-section-divider.blue::after {
-          background: linear-gradient(90deg, transparent, #4ecfff, transparent);
+          background: linear-gradient(90deg, transparent, rgba(78, 205, 255, 0.4), transparent);
         }
-        .anime-section-divider.blue h2 { color: #4ecfff; }
+        .anime-section-divider.blue h2 { color: #6dd8ff; text-shadow: 0 0 30px rgba(78, 205, 255, 0.3); }
 
         .anime-section-divider.gold::before,
         .anime-section-divider.gold::after {
-          background: linear-gradient(90deg, transparent, #ffb84d, transparent);
+          background: linear-gradient(90deg, transparent, rgba(255, 184, 77, 0.4), transparent);
         }
-        .anime-section-divider.gold h2 { color: #ffb84d; }
+        .anime-section-divider.gold h2 { color: #ffc86e; text-shadow: 0 0 30px rgba(255, 184, 77, 0.3); }
 
         .anime-section-divider.purple::before,
         .anime-section-divider.purple::after {
-          background: linear-gradient(90deg, transparent, #a78bfa, transparent);
+          background: linear-gradient(90deg, transparent, rgba(167, 139, 250, 0.4), transparent);
         }
-        .anime-section-divider.purple h2 { color: #a78bfa; }
+        .anime-section-divider.purple h2 { color: #b8a4fb; text-shadow: 0 0 30px rgba(167, 139, 250, 0.3); }
 
         .anime-section-divider.green::before,
         .anime-section-divider.green::after {
-          background: linear-gradient(90deg, transparent, #34d399, transparent);
+          background: linear-gradient(90deg, transparent, rgba(52, 211, 153, 0.4), transparent);
         }
-        .anime-section-divider.green h2 { color: #34d399; }
+        .anime-section-divider.green h2 { color: #5ee8b7; text-shadow: 0 0 30px rgba(52, 211, 153, 0.3); }
 
         /* ===== CONTENT WRAPPER ===== */
         .anime-content {
@@ -224,32 +235,36 @@ export default function JapaneseAnime() {
         /* ===== ABOUT ===== */
         .anime-about {
           position: relative;
-          background: rgba(255, 255, 255, 0.04);
-          border: 1px solid rgba(255, 255, 255, 0.08);
-          border-radius: 20px;
+          background: rgba(255, 255, 255, 0.06);
+          border: 1px solid rgba(255, 255, 255, 0.12);
+          border-radius: 24px;
           padding: 36px 40px;
           margin-bottom: 60px;
-          backdrop-filter: blur(8px);
+          backdrop-filter: blur(24px) saturate(1.4);
+          -webkit-backdrop-filter: blur(24px) saturate(1.4);
           overflow: hidden;
           line-height: 1.8;
           font-size: 0.95rem;
-          color: rgba(240, 230, 255, 0.8);
+          color: rgba(238, 232, 255, 0.88);
+          box-shadow:
+            0 8px 32px rgba(0, 0, 0, 0.3),
+            inset 0 1px 0 rgba(255, 255, 255, 0.1),
+            inset 0 -1px 0 rgba(255, 255, 255, 0.03);
         }
 
         .anime-about::before {
           content: '';
           position: absolute;
           top: 0; left: 0;
-          width: 100%; height: 4px;
-          border-radius: 20px 20px 0 0;
-          background: linear-gradient(90deg, #ff6b9d, #4ecfff, #ffb84d);
+          width: 100%; height: 3px;
+          background: linear-gradient(90deg, #ff8fba, #6dd8ff, #ffc86e);
         }
 
         .anime-about .about-quote-mark {
           font-family: 'Zen Maru Gothic', sans-serif;
           font-size: 4rem;
           line-height: 1;
-          color: rgba(255, 107, 157, 0.25);
+          color: rgba(255, 143, 186, 0.3);
           margin-bottom: -16px;
           display: block;
         }
@@ -258,7 +273,7 @@ export default function JapaneseAnime() {
         .anime-skills-grid {
           display: flex;
           flex-wrap: wrap;
-          gap: 12px;
+          gap: 10px;
           margin-bottom: 60px;
         }
 
@@ -268,34 +283,41 @@ export default function JapaneseAnime() {
           font-weight: 600;
           padding: 10px 22px;
           border-radius: 30px;
-          background: rgba(255, 255, 255, 0.04);
-          border: 1px solid rgba(255, 255, 255, 0.1);
-          color: rgba(240, 230, 255, 0.85);
+          background: rgba(255, 255, 255, 0.06);
+          border: 1px solid rgba(255, 255, 255, 0.12);
+          color: rgba(238, 232, 255, 0.9);
           transition: all 0.3s ease;
           letter-spacing: 0.5px;
+          backdrop-filter: blur(16px);
+          -webkit-backdrop-filter: blur(16px);
+          box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);
         }
 
         .anime-skill-tag:nth-child(4n+1) {
-          border-color: rgba(255, 107, 157, 0.3);
-          color: #ff6b9d;
+          border-color: rgba(255, 143, 186, 0.35);
+          color: #ff8fba;
+          background: rgba(255, 107, 157, 0.08);
         }
         .anime-skill-tag:nth-child(4n+2) {
-          border-color: rgba(78, 205, 255, 0.3);
-          color: #4ecfff;
+          border-color: rgba(109, 216, 255, 0.35);
+          color: #6dd8ff;
+          background: rgba(78, 205, 255, 0.08);
         }
         .anime-skill-tag:nth-child(4n+3) {
-          border-color: rgba(255, 184, 77, 0.3);
-          color: #ffb84d;
+          border-color: rgba(255, 200, 110, 0.35);
+          color: #ffc86e;
+          background: rgba(255, 184, 77, 0.08);
         }
         .anime-skill-tag:nth-child(4n+4) {
-          border-color: rgba(167, 139, 250, 0.3);
-          color: #a78bfa;
+          border-color: rgba(184, 164, 251, 0.35);
+          color: #b8a4fb;
+          background: rgba(167, 139, 250, 0.08);
         }
 
         .anime-skill-tag:hover {
           transform: translateY(-2px) scale(1.05);
-          background: rgba(255, 255, 255, 0.08);
-          box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+          background: rgba(255, 255, 255, 0.12);
+          box-shadow: 0 8px 28px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.15);
         }
 
         /* ===== EXPERIENCE GRID ===== */
@@ -308,52 +330,60 @@ export default function JapaneseAnime() {
 
         .anime-card {
           position: relative;
-          background: rgba(255, 255, 255, 0.04);
-          border: 1px solid rgba(255, 255, 255, 0.08);
-          border-radius: 16px;
+          background: rgba(255, 255, 255, 0.06);
+          border: 1px solid rgba(255, 255, 255, 0.12);
+          border-radius: 20px;
           padding: 28px;
           overflow: hidden;
           transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-          backdrop-filter: blur(8px);
+          backdrop-filter: blur(24px) saturate(1.4);
+          -webkit-backdrop-filter: blur(24px) saturate(1.4);
+          box-shadow:
+            0 8px 32px rgba(0, 0, 0, 0.25),
+            inset 0 1px 0 rgba(255, 255, 255, 0.1),
+            inset 0 -1px 0 rgba(255, 255, 255, 0.03);
         }
 
         .anime-card::before {
           content: '';
           position: absolute;
           top: 0; left: 0;
-          width: 100%; height: 4px;
-          background: var(--card-accent, linear-gradient(90deg, #ff6b9d, #4ecfff));
+          width: 100%; height: 3px;
+          background: var(--card-accent, linear-gradient(90deg, #ff8fba, #6dd8ff));
         }
 
         .anime-card:hover {
-          transform: translateY(-4px) rotate(-0.5deg);
-          border-color: rgba(255, 107, 157, 0.3);
-          box-shadow: 0 20px 60px rgba(255, 107, 157, 0.15), 0 0 40px rgba(78, 205, 255, 0.08);
+          transform: translateY(-6px);
+          border-color: rgba(255, 255, 255, 0.2);
+          box-shadow:
+            0 24px 64px rgba(0, 0, 0, 0.35),
+            0 0 40px rgba(255, 107, 157, 0.08),
+            inset 0 1px 0 rgba(255, 255, 255, 0.15);
         }
 
-        .anime-card:nth-child(3n+2) { --card-accent: linear-gradient(90deg, #4ecfff, #a78bfa); }
-        .anime-card:nth-child(3n+3) { --card-accent: linear-gradient(90deg, #ffb84d, #ff6b9d); }
+        .anime-card:nth-child(3n+2) { --card-accent: linear-gradient(90deg, #6dd8ff, #b8a4fb); }
+        .anime-card:nth-child(3n+3) { --card-accent: linear-gradient(90deg, #ffc86e, #ff8fba); }
 
         .anime-card .card-date {
           display: inline-block;
-          background: rgba(255, 107, 157, 0.15);
-          color: #ff6b9d;
+          background: rgba(255, 143, 186, 0.15);
+          color: #ff8fba;
           font-size: 0.72rem;
           font-weight: 600;
-          padding: 4px 14px;
+          padding: 5px 14px;
           border-radius: 20px;
           letter-spacing: 1px;
           margin-bottom: 12px;
         }
 
         .anime-card:nth-child(3n+2) .card-date {
-          background: rgba(78, 205, 255, 0.15);
-          color: #4ecfff;
+          background: rgba(109, 216, 255, 0.15);
+          color: #6dd8ff;
         }
 
         .anime-card:nth-child(3n+3) .card-date {
-          background: rgba(255, 184, 77, 0.15);
-          color: #ffb84d;
+          background: rgba(255, 200, 110, 0.15);
+          color: #ffc86e;
         }
 
         .anime-card .card-role {
@@ -367,10 +397,10 @@ export default function JapaneseAnime() {
 
         .anime-card .card-company {
           font-size: 0.78rem;
-          color: rgba(240, 230, 255, 0.5);
+          color: rgba(238, 232, 255, 0.55);
           margin-bottom: 18px;
           padding-bottom: 14px;
-          border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+          border-bottom: 1px solid rgba(255, 255, 255, 0.08);
         }
 
         .anime-card .card-bullets {
@@ -383,12 +413,13 @@ export default function JapaneseAnime() {
           position: relative;
           font-size: 0.8rem;
           line-height: 1.6;
-          color: rgba(240, 230, 255, 0.75);
+          color: rgba(238, 232, 255, 0.8);
           margin-bottom: 10px;
           padding: 10px 14px;
-          background: rgba(255, 255, 255, 0.03);
+          background: rgba(255, 255, 255, 0.04);
           border-radius: 12px;
           border-bottom-left-radius: 4px;
+          border: 1px solid rgba(255, 255, 255, 0.04);
         }
 
         .anime-card .card-bullets li strong {
@@ -406,44 +437,49 @@ export default function JapaneseAnime() {
           font-family: 'Zen Maru Gothic', sans-serif;
           font-size: 2.5rem;
           font-weight: 900;
-          color: rgba(255, 255, 255, 0.04);
+          color: rgba(255, 255, 255, 0.05);
           line-height: 1;
         }
 
         /* ===== EDUCATION CARD ===== */
         .anime-edu-card {
           position: relative;
-          background: rgba(255, 255, 255, 0.04);
-          border: 1px solid rgba(255, 255, 255, 0.08);
-          border-radius: 16px;
+          background: rgba(255, 255, 255, 0.06);
+          border: 1px solid rgba(255, 255, 255, 0.12);
+          border-radius: 20px;
           padding: 32px 36px;
           margin-bottom: 60px;
-          backdrop-filter: blur(8px);
+          backdrop-filter: blur(24px) saturate(1.4);
+          -webkit-backdrop-filter: blur(24px) saturate(1.4);
           overflow: hidden;
           display: flex;
           align-items: center;
           gap: 28px;
+          box-shadow:
+            0 8px 32px rgba(0, 0, 0, 0.25),
+            inset 0 1px 0 rgba(255, 255, 255, 0.1);
         }
 
         .anime-edu-card::before {
           content: '';
           position: absolute;
           top: 0; left: 0;
-          width: 100%; height: 4px;
-          border-radius: 16px 16px 0 0;
-          background: linear-gradient(90deg, #ffb84d, #ff6b9d);
+          width: 100%; height: 3px;
+          background: linear-gradient(90deg, #ffc86e, #ff8fba);
         }
 
         .anime-edu-icon {
           flex-shrink: 0;
           width: 72px; height: 72px;
           border-radius: 50%;
-          background: rgba(255, 184, 77, 0.12);
-          border: 2px solid rgba(255, 184, 77, 0.25);
+          background: rgba(255, 200, 110, 0.12);
+          border: 2px solid rgba(255, 200, 110, 0.3);
           display: flex;
           align-items: center;
           justify-content: center;
           font-size: 2rem;
+          color: #ffc86e;
+          box-shadow: 0 0 20px rgba(255, 184, 77, 0.1);
         }
 
         .anime-edu-info h3 {
@@ -456,7 +492,7 @@ export default function JapaneseAnime() {
 
         .anime-edu-info .edu-degree {
           font-size: 0.85rem;
-          color: rgba(240, 230, 255, 0.7);
+          color: rgba(238, 232, 255, 0.75);
           margin-bottom: 6px;
         }
 
@@ -470,19 +506,19 @@ export default function JapaneseAnime() {
           display: inline-flex;
           align-items: center;
           gap: 6px;
-          padding: 4px 14px;
+          padding: 5px 14px;
           border-radius: 20px;
           font-weight: 600;
         }
 
         .anime-edu-meta .edu-year {
-          background: rgba(255, 184, 77, 0.15);
-          color: #ffb84d;
+          background: rgba(255, 200, 110, 0.15);
+          color: #ffc86e;
         }
 
         .anime-edu-meta .edu-gpa {
-          background: rgba(52, 211, 153, 0.15);
-          color: #34d399;
+          background: rgba(94, 232, 183, 0.15);
+          color: #5ee8b7;
         }
 
         /* ===== CERTIFICATIONS ===== */
@@ -495,40 +531,48 @@ export default function JapaneseAnime() {
 
         .anime-cert-card {
           position: relative;
-          background: rgba(255, 255, 255, 0.04);
-          border: 1px solid rgba(255, 255, 255, 0.08);
-          border-radius: 16px;
+          background: rgba(255, 255, 255, 0.06);
+          border: 1px solid rgba(255, 255, 255, 0.12);
+          border-radius: 20px;
           padding: 28px;
-          backdrop-filter: blur(8px);
+          backdrop-filter: blur(24px) saturate(1.4);
+          -webkit-backdrop-filter: blur(24px) saturate(1.4);
           overflow: hidden;
           transition: all 0.3s ease;
+          box-shadow:
+            0 8px 32px rgba(0, 0, 0, 0.25),
+            inset 0 1px 0 rgba(255, 255, 255, 0.1);
         }
 
         .anime-cert-card::before {
           content: '';
           position: absolute;
           top: 0; left: 0;
-          width: 100%; height: 4px;
-          border-radius: 16px 16px 0 0;
-          background: linear-gradient(90deg, #a78bfa, #4ecfff);
+          width: 100%; height: 3px;
+          background: linear-gradient(90deg, #b8a4fb, #6dd8ff);
         }
 
         .anime-cert-card:hover {
-          transform: translateY(-3px);
-          border-color: rgba(167, 139, 250, 0.3);
-          box-shadow: 0 12px 40px rgba(167, 139, 250, 0.12);
+          transform: translateY(-4px);
+          border-color: rgba(255, 255, 255, 0.2);
+          box-shadow:
+            0 16px 48px rgba(0, 0, 0, 0.3),
+            0 0 30px rgba(167, 139, 250, 0.1),
+            inset 0 1px 0 rgba(255, 255, 255, 0.15);
         }
 
         .anime-cert-card .cert-icon {
           width: 48px; height: 48px;
-          border-radius: 12px;
-          background: rgba(167, 139, 250, 0.12);
-          border: 1px solid rgba(167, 139, 250, 0.2);
+          border-radius: 14px;
+          background: rgba(184, 164, 251, 0.12);
+          border: 1px solid rgba(184, 164, 251, 0.25);
           display: flex;
           align-items: center;
           justify-content: center;
           font-size: 1.3rem;
           margin-bottom: 16px;
+          color: #b8a4fb;
+          box-shadow: 0 0 16px rgba(167, 139, 250, 0.08);
         }
 
         .anime-cert-card h3 {
@@ -541,7 +585,7 @@ export default function JapaneseAnime() {
 
         .anime-cert-card p {
           font-size: 0.8rem;
-          color: rgba(240, 230, 255, 0.6);
+          color: rgba(238, 232, 255, 0.65);
           margin: 0;
           line-height: 1.5;
         }
@@ -559,18 +603,25 @@ export default function JapaneseAnime() {
           align-items: center;
           gap: 14px;
           padding: 20px 24px;
-          background: rgba(255, 255, 255, 0.04);
-          border: 1px solid rgba(255, 255, 255, 0.08);
-          border-radius: 14px;
+          background: rgba(255, 255, 255, 0.06);
+          border: 1px solid rgba(255, 255, 255, 0.12);
+          border-radius: 18px;
           text-decoration: none;
-          color: rgba(240, 230, 255, 0.85);
+          color: rgba(238, 232, 255, 0.9);
           transition: all 0.3s ease;
-          backdrop-filter: blur(8px);
+          backdrop-filter: blur(24px) saturate(1.4);
+          -webkit-backdrop-filter: blur(24px) saturate(1.4);
+          box-shadow:
+            0 4px 20px rgba(0, 0, 0, 0.2),
+            inset 0 1px 0 rgba(255, 255, 255, 0.08);
         }
 
         .anime-contact-link:hover {
-          transform: translateY(-3px);
-          box-shadow: 0 12px 36px rgba(0,0,0,0.2);
+          transform: translateY(-4px);
+          border-color: rgba(255, 255, 255, 0.2);
+          box-shadow:
+            0 12px 40px rgba(0, 0, 0, 0.3),
+            inset 0 1px 0 rgba(255, 255, 255, 0.15);
         }
 
         .anime-contact-link .contact-icon {
@@ -584,46 +635,51 @@ export default function JapaneseAnime() {
         }
 
         .anime-contact-link.linkedin .contact-icon {
-          background: rgba(78, 205, 255, 0.12);
-          border: 1px solid rgba(78, 205, 255, 0.25);
+          background: rgba(109, 216, 255, 0.12);
+          border: 1px solid rgba(109, 216, 255, 0.3);
+          color: #6dd8ff;
         }
         .anime-contact-link.linkedin:hover {
-          border-color: rgba(78, 205, 255, 0.3);
+          border-color: rgba(109, 216, 255, 0.35);
         }
 
         .anime-contact-link.github .contact-icon {
-          background: rgba(240, 230, 255, 0.1);
-          border: 1px solid rgba(240, 230, 255, 0.2);
+          background: rgba(238, 232, 255, 0.1);
+          border: 1px solid rgba(238, 232, 255, 0.2);
+          color: #eee8ff;
         }
         .anime-contact-link.github:hover {
-          border-color: rgba(240, 230, 255, 0.25);
+          border-color: rgba(238, 232, 255, 0.3);
         }
 
         .anime-contact-link.email .contact-icon {
-          background: rgba(255, 107, 157, 0.12);
-          border: 1px solid rgba(255, 107, 157, 0.25);
+          background: rgba(255, 143, 186, 0.12);
+          border: 1px solid rgba(255, 143, 186, 0.3);
+          color: #ff8fba;
         }
         .anime-contact-link.email:hover {
-          border-color: rgba(255, 107, 157, 0.3);
+          border-color: rgba(255, 143, 186, 0.35);
         }
 
         .anime-contact-link.youtube .contact-icon {
-          background: rgba(255, 184, 77, 0.12);
-          border: 1px solid rgba(255, 184, 77, 0.25);
+          background: rgba(255, 200, 110, 0.12);
+          border: 1px solid rgba(255, 200, 110, 0.3);
+          color: #ffc86e;
         }
         .anime-contact-link.youtube:hover {
-          border-color: rgba(255, 184, 77, 0.3);
+          border-color: rgba(255, 200, 110, 0.35);
         }
 
         .anime-contact-link .contact-label {
           font-weight: 600;
           font-size: 0.85rem;
           letter-spacing: 0.5px;
+          color: #fff;
         }
 
         .anime-contact-link .contact-handle {
-          font-size: 0.7rem;
-          color: rgba(240, 230, 255, 0.4);
+          font-size: 0.72rem;
+          color: rgba(238, 232, 255, 0.5);
           margin-top: 2px;
         }
 
@@ -636,8 +692,8 @@ export default function JapaneseAnime() {
           font-size: 0.65rem;
           letter-spacing: 4px;
           text-transform: uppercase;
-          color: rgba(240, 230, 255, 0.3);
-          border-top: 1px solid rgba(255, 255, 255, 0.06);
+          color: rgba(238, 232, 255, 0.35);
+          border-top: 1px solid rgba(255, 255, 255, 0.08);
         }
 
         /* ===== FLOATING SHAPES ===== */
@@ -734,7 +790,7 @@ export default function JapaneseAnime() {
           </div>
           <div className="anime-about">
             <span className="about-quote-mark">&ldquo;</span>
-            {about.summary}
+            <strong>Software Engineering Lead</strong> with over <strong>10 years of experience</strong> spanning diverse domains including <strong>Web, Mobile, VR, and Blockchain</strong>. My career demonstrates a proven track record with industry giants like <strong>True Digital Group</strong> and <strong>PTTEP</strong>, as well as scaling high-growth startups like <strong>Zanroo</strong> from inception to <strong>Series-A funding</strong>. Currently <strong>leading a team of 7-10 developers</strong>, I am passionate about evolving traditional development workflows by integrating <strong>AI-driven architectures (MCP, Sub-agents)</strong> to maximize efficiency. I thrive in collaborative environments and am seeking to join a team of talented, positive-minded professionals where we can <strong>push technological boundaries together</strong>.
           </div>
         </div>
 
