@@ -6,7 +6,7 @@ import {
   certifications,
   contactLinks,
 } from "@/lib/resume-data";
-import { Linkedin, Github, Mail, Youtube, GraduationCap, Award } from "lucide-react";
+import { Linkedin, Github, Mail, Youtube, GraduationCap, Award, Download } from "lucide-react";
 
 export default function BrutalistTimeline() {
   const contactIcons: Record<string, React.ReactNode> = {
@@ -72,6 +72,33 @@ export default function BrutalistTimeline() {
           border-top: 3px solid #e63946;
           display: inline-block;
           padding-top: 8px;
+        }
+
+        .brutalist-download {
+          display: inline-flex;
+          align-items: center;
+          gap: 10px;
+          position: absolute;
+          top: 40px;
+          right: 40px;
+          padding: 14px 28px;
+          background: #0a0a0a;
+          color: #fff;
+          font-family: 'Space Mono', monospace;
+          font-size: 0.75rem;
+          font-weight: 700;
+          letter-spacing: 3px;
+          text-transform: uppercase;
+          text-decoration: none;
+          border: 3px solid #0a0a0a;
+          transition: all 0.15s ease;
+        }
+
+        .brutalist-download:hover {
+          background: #e63946;
+          border-color: #e63946;
+          transform: translate(-3px, -3px);
+          box-shadow: 6px 6px 0 #0a0a0a;
         }
 
         /* ===== NAV ===== */
@@ -532,8 +559,28 @@ export default function BrutalistTimeline() {
 
         @media (max-width: 768px) {
           .brutalist-header { padding: 30px 20px 20px; }
+          .brutalist-download {
+            position: static;
+            margin-top: 16px;
+            padding: 12px 20px;
+            font-size: 0.65rem;
+          }
           .brutalist-section-title { padding: 30px 20px 15px; font-size: 2.5rem; }
-          .brutalist-nav a { padding: 10px 16px; font-size: 0.6rem; }
+          .brutalist-nav {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            border-bottom: none;
+          }
+          .brutalist-nav a {
+            padding: 14px 10px;
+            font-size: 0.6rem;
+            text-align: center;
+            border: 1px solid #0a0a0a;
+            border-right: none;
+          }
+          .brutalist-nav a:nth-child(3n) {
+            border-right: 1px solid #0a0a0a;
+          }
           .timeline-container { padding: 0 20px; }
           .timeline-line { left: 50px; }
           .experience-block { padding: 30px 0 30px 50px; }
@@ -551,6 +598,14 @@ export default function BrutalistTimeline() {
         <div className="brutalist-header">
           <h1>Kittitat<br />Upaphong</h1>
           <div className="subtitle">Software Engineering Lead / 10+ Years / 2014—Present</div>
+          <a
+            href="/files/Kittitat_Upaphong_Resume.pdf"
+            download
+            className="brutalist-download"
+          >
+            <Download size={18} />
+            Download Resume
+          </a>
         </div>
 
         <nav className="brutalist-nav">

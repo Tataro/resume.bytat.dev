@@ -1,5 +1,5 @@
 import { experiences } from "@/lib/experience-data";
-import { Linkedin, Github, Mail, Youtube, GraduationCap, Award } from "lucide-react";
+import { Linkedin, Github, Mail, Youtube, GraduationCap, Award, Download } from "lucide-react";
 import {
   about,
   skills,
@@ -134,6 +134,37 @@ export default function JapaneseAnime() {
           color: rgba(238, 232, 255, 0.65);
           font-weight: 300;
           letter-spacing: 2px;
+        }
+
+        .anime-download {
+          display: inline-flex;
+          align-items: center;
+          gap: 10px;
+          margin-top: 24px;
+          padding: 14px 32px;
+          background: rgba(255, 255, 255, 0.08);
+          border: 1px solid rgba(255, 255, 255, 0.2);
+          border-radius: 30px;
+          color: #fff;
+          font-family: 'Outfit', sans-serif;
+          font-size: 0.85rem;
+          font-weight: 600;
+          letter-spacing: 1.5px;
+          text-decoration: none;
+          text-transform: uppercase;
+          backdrop-filter: blur(16px);
+          -webkit-backdrop-filter: blur(16px);
+          transition: all 0.3s ease;
+          box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+        }
+
+        .anime-download:hover {
+          background: rgba(255, 143, 186, 0.15);
+          border-color: rgba(255, 143, 186, 0.4);
+          box-shadow:
+            0 8px 32px rgba(255, 107, 157, 0.2),
+            inset 0 1px 0 rgba(255,255,255,0.15);
+          transform: translateY(-2px);
         }
 
         /* ===== NAV ===== */
@@ -279,9 +310,9 @@ export default function JapaneseAnime() {
 
         .anime-skill-tag {
           display: inline-block;
-          font-size: 0.82rem;
+          font-size: 0.88rem;
           font-weight: 600;
-          padding: 10px 22px;
+          padding: 11px 24px;
           border-radius: 30px;
           background: rgba(255, 255, 255, 0.06);
           border: 1px solid rgba(255, 255, 255, 0.12);
@@ -320,10 +351,10 @@ export default function JapaneseAnime() {
           box-shadow: 0 8px 28px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.15);
         }
 
-        /* ===== EXPERIENCE GRID ===== */
+        /* ===== EXPERIENCE STACK ===== */
         .anime-grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+          display: flex;
+          flex-direction: column;
           gap: 24px;
           margin-bottom: 60px;
         }
@@ -333,7 +364,7 @@ export default function JapaneseAnime() {
           background: rgba(255, 255, 255, 0.06);
           border: 1px solid rgba(255, 255, 255, 0.12);
           border-radius: 20px;
-          padding: 28px;
+          padding: 32px 36px;
           overflow: hidden;
           transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
           backdrop-filter: blur(24px) saturate(1.4);
@@ -342,6 +373,21 @@ export default function JapaneseAnime() {
             0 8px 32px rgba(0, 0, 0, 0.25),
             inset 0 1px 0 rgba(255, 255, 255, 0.1),
             inset 0 -1px 0 rgba(255, 255, 255, 0.03);
+          display: flex;
+          gap: 36px;
+          align-items: flex-start;
+        }
+
+        .anime-card .card-left {
+          flex-shrink: 0;
+          width: 240px;
+          position: sticky;
+          top: 32px;
+        }
+
+        .anime-card .card-right {
+          flex: 1;
+          min-width: 0;
         }
 
         .anime-card::before {
@@ -368,12 +414,12 @@ export default function JapaneseAnime() {
           display: inline-block;
           background: rgba(255, 143, 186, 0.15);
           color: #ff8fba;
-          font-size: 0.72rem;
+          font-size: 0.8rem;
           font-weight: 600;
-          padding: 5px 14px;
+          padding: 6px 16px;
           border-radius: 20px;
           letter-spacing: 1px;
-          margin-bottom: 12px;
+          margin-bottom: 14px;
         }
 
         .anime-card:nth-child(3n+2) .card-date {
@@ -388,16 +434,16 @@ export default function JapaneseAnime() {
 
         .anime-card .card-role {
           font-family: 'Zen Maru Gothic', sans-serif;
-          font-size: 1.15rem;
+          font-size: 1.3rem;
           font-weight: 700;
           line-height: 1.3;
-          margin-bottom: 4px;
+          margin-bottom: 6px;
           color: #fff;
         }
 
         .anime-card .card-company {
-          font-size: 0.78rem;
-          color: rgba(238, 232, 255, 0.55);
+          font-size: 0.88rem;
+          color: rgba(238, 232, 255, 0.6);
           margin-bottom: 18px;
           padding-bottom: 14px;
           border-bottom: 1px solid rgba(255, 255, 255, 0.08);
@@ -411,11 +457,11 @@ export default function JapaneseAnime() {
 
         .anime-card .card-bullets li {
           position: relative;
-          font-size: 0.8rem;
-          line-height: 1.6;
-          color: rgba(238, 232, 255, 0.8);
+          font-size: 0.88rem;
+          line-height: 1.65;
+          color: rgba(238, 232, 255, 0.85);
           margin-bottom: 10px;
-          padding: 10px 14px;
+          padding: 12px 16px;
           background: rgba(255, 255, 255, 0.04);
           border-radius: 12px;
           border-bottom-left-radius: 4px;
@@ -426,8 +472,8 @@ export default function JapaneseAnime() {
           display: block;
           color: #fff;
           font-weight: 600;
-          font-size: 0.75rem;
-          margin-bottom: 2px;
+          font-size: 0.82rem;
+          margin-bottom: 3px;
           letter-spacing: 0.5px;
         }
 
@@ -484,22 +530,22 @@ export default function JapaneseAnime() {
 
         .anime-edu-info h3 {
           font-family: 'Zen Maru Gothic', sans-serif;
-          font-size: 1.15rem;
+          font-size: 1.3rem;
           font-weight: 700;
           color: #fff;
-          margin: 0 0 4px;
+          margin: 0 0 6px;
         }
 
         .anime-edu-info .edu-degree {
-          font-size: 0.85rem;
+          font-size: 0.95rem;
           color: rgba(238, 232, 255, 0.75);
-          margin-bottom: 6px;
+          margin-bottom: 8px;
         }
 
         .anime-edu-meta {
           display: flex;
           gap: 16px;
-          font-size: 0.75rem;
+          font-size: 0.82rem;
         }
 
         .anime-edu-meta span {
@@ -577,17 +623,17 @@ export default function JapaneseAnime() {
 
         .anime-cert-card h3 {
           font-family: 'Zen Maru Gothic', sans-serif;
-          font-size: 1rem;
+          font-size: 1.15rem;
           font-weight: 700;
           color: #fff;
           margin: 0 0 8px;
         }
 
         .anime-cert-card p {
-          font-size: 0.8rem;
-          color: rgba(238, 232, 255, 0.65);
+          font-size: 0.9rem;
+          color: rgba(238, 232, 255, 0.7);
           margin: 0;
-          line-height: 1.5;
+          line-height: 1.6;
         }
 
         /* ===== CONTACT ===== */
@@ -672,13 +718,13 @@ export default function JapaneseAnime() {
 
         .anime-contact-link .contact-label {
           font-weight: 600;
-          font-size: 0.85rem;
+          font-size: 0.95rem;
           letter-spacing: 0.5px;
           color: #fff;
         }
 
         .anime-contact-link .contact-handle {
-          font-size: 0.72rem;
+          font-size: 0.8rem;
           color: rgba(238, 232, 255, 0.5);
           margin-top: 2px;
         }
@@ -715,7 +761,8 @@ export default function JapaneseAnime() {
         @media (max-width: 768px) {
           .anime-hero { padding: 50px 20px 40px; }
           .anime-content { padding: 0 20px 40px; }
-          .anime-grid { grid-template-columns: 1fr; }
+          .anime-card { flex-direction: column; gap: 20px; padding: 28px 24px; }
+          .anime-card .card-left { width: 100%; position: static; }
           .anime-section-divider { padding: 0 20px; }
           .anime-about { padding: 28px 24px; }
           .anime-edu-card { flex-direction: column; text-align: center; }
@@ -771,6 +818,14 @@ export default function JapaneseAnime() {
           <div className="subtitle">
             10+ Years of Experience ✦ Web · Mobile · VR · Blockchain
           </div>
+          <a
+            href="/files/Kittitat_Upaphong_Resume.pdf"
+            download
+            className="anime-download"
+          >
+            <Download size={18} />
+            Download Resume
+          </a>
         </div>
 
         {/* Navigation */}
@@ -817,21 +872,25 @@ export default function JapaneseAnime() {
                 <div className="card-number">
                   {String(i + 1).padStart(2, "0")}
                 </div>
-                <div className="card-date">
-                  {exp.startDate} — {exp.endDate}
+                <div className="card-left">
+                  <div className="card-date">
+                    {exp.startDate} — {exp.endDate}
+                  </div>
+                  <div className="card-role">{exp.role}</div>
+                  <div className="card-company">
+                    {exp.company} · {exp.location}
+                  </div>
                 </div>
-                <div className="card-role">{exp.role}</div>
-                <div className="card-company">
-                  {exp.company} · {exp.location}
+                <div className="card-right">
+                  <ul className="card-bullets">
+                    {exp.bullets.map((b, j) => (
+                      <li key={j}>
+                        <strong>{b.title}</strong>
+                        {b.description}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-                <ul className="card-bullets">
-                  {exp.bullets.map((b, j) => (
-                    <li key={j}>
-                      <strong>{b.title}</strong>
-                      {b.description}
-                    </li>
-                  ))}
-                </ul>
               </div>
             ))}
           </div>
