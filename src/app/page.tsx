@@ -1,65 +1,168 @@
-import Image from "next/image";
+import { Linkedin, Youtube, Code, Music, Sparkles } from 'lucide-react';
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-indigo-900 to-slate-900">
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute -inset-[10px] opacity-30">
+          {[...Array(100)].map((_, i) => (
+            <div
+              key={i}
+              className="absolute rounded-full bg-white"
+              style={{
+                width: Math.random() * 2 + 1 + 'px',
+                height: Math.random() * 2 + 1 + 'px',
+                top: Math.random() * 100 + '%',
+                left: Math.random() * 100 + '%',
+                animation: `float ${Math.random() * 10 + 10}s infinite ${Math.random() * 5}s`,
+              }}
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+          ))}
         </div>
-      </main>
+      </div>
+
+      <div className="relative z-10 container mx-auto px-4 py-16">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-16 animate-fade-in-up">
+            <div className="mb-8 relative inline-block">
+              <div className="w-32 h-32 rounded-full bg-gradient-to-br from-purple-400 to-pink-500 flex items-center justify-center text-6xl font-bold text-white shadow-2xl animate-pulse-slow">
+                KU
+              </div>
+              <Sparkles className="absolute -top-2 -right-2 w-8 h-8 text-yellow-300 animate-spin-slow" />
+            </div>
+
+            <h1 className="text-5xl md:text-7xl font-bold text-white mb-4 tracking-tight">
+              Kittitat Upaphong
+            </h1>
+
+            <div className="flex items-center justify-center gap-6 mb-8">
+              <div className="flex items-center gap-2 text-purple-300">
+                <Code className="w-6 h-6" />
+                <span className="text-xl">Programmer</span>
+              </div>
+              <div className="w-2 h-2 rounded-full bg-purple-400"></div>
+              <div className="flex items-center gap-2 text-pink-300">
+                <Music className="w-6 h-6" />
+                <span className="text-xl">Pianist</span>
+              </div>
+            </div>
+
+            <p className="text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
+              Crafting elegant code and beautiful melodies.
+              Where technology meets artistry.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8 mb-16">
+            <div className="group">
+              <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 border border-white/20 hover:border-purple-400/50 transition-all duration-300 hover:scale-105 hover:shadow-2xl h-full">
+                <Code className="w-12 h-12 text-purple-400 mb-4 group-hover:scale-110 transition-transform" />
+                <h3 className="text-2xl font-bold text-white mb-3">Programming</h3>
+                <p className="text-gray-300 leading-relaxed">
+                  Building innovative solutions with clean, efficient code.
+                  Passionate about creating seamless user experiences and solving complex problems.
+                </p>
+              </div>
+            </div>
+
+            <div className="group">
+              <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 border border-white/20 hover:border-pink-400/50 transition-all duration-300 hover:scale-105 hover:shadow-2xl h-full">
+                <Music className="w-12 h-12 text-pink-400 mb-4 group-hover:scale-110 transition-transform" />
+                <h3 className="text-2xl font-bold text-white mb-3">Piano</h3>
+                <p className="text-gray-300 leading-relaxed">
+                  Expressing emotions through music.
+                  From classical masterpieces to contemporary compositions, bringing melodies to life.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="text-center">
+            <h2 className="text-3xl font-bold text-white mb-8">Connect With Me</h2>
+            <div className="flex justify-center gap-6">
+              <a
+                href="https://www.linkedin.com/in/kittitat-upaphong/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center gap-3 bg-white/10 backdrop-blur-lg rounded-xl px-8 py-4 border border-white/20 hover:border-blue-400/50 hover:bg-white/20 transition-all duration-300 hover:scale-110 hover:shadow-xl"
+              >
+                <Linkedin className="w-6 h-6 text-blue-400 group-hover:scale-110 transition-transform" />
+                <span className="text-white font-medium">LinkedIn</span>
+              </a>
+
+              <a
+                href="https://www.youtube.com/@tatouch5973"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center gap-3 bg-white/10 backdrop-blur-lg rounded-xl px-8 py-4 border border-white/20 hover:border-red-400/50 hover:bg-white/20 transition-all duration-300 hover:scale-110 hover:shadow-xl"
+              >
+                <Youtube className="w-6 h-6 text-red-400 group-hover:scale-110 transition-transform" />
+                <span className="text-white font-medium">YouTube</span>
+              </a>
+            </div>
+          </div>
+
+          <div className="mt-16 text-center">
+            <div className="inline-block bg-gradient-to-r from-purple-500/20 to-pink-500/20 backdrop-blur-lg rounded-2xl px-8 py-6 border border-white/20">
+              <p className="text-gray-300 text-lg">
+                "The code is poetry, the piano is my voice"
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <style>{`
+        @keyframes float {
+          0%, 100% {
+            transform: translateY(0) translateX(0);
+          }
+          25% {
+            transform: translateY(-20px) translateX(10px);
+          }
+          50% {
+            transform: translateY(-10px) translateX(-10px);
+          }
+          75% {
+            transform: translateY(-30px) translateX(5px);
+          }
+        }
+        @keyframes fade-in-up {
+          from {
+            opacity: 0;
+            transform: translateY(30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        @keyframes pulse-slow {
+          0%, 100% {
+            transform: scale(1);
+          }
+          50% {
+            transform: scale(1.05);
+          }
+        }
+        @keyframes spin-slow {
+          from {
+            transform: rotate(0deg);
+          }
+          to {
+            transform: rotate(360deg);
+          }
+        }
+        .animate-fade-in-up {
+          animation: fade-in-up 1s ease-out;
+        }
+        .animate-pulse-slow {
+          animation: pulse-slow 3s ease-in-out infinite;
+        }
+        .animate-spin-slow {
+          animation: spin-slow 4s linear infinite;
+        }
+      `}</style>
     </div>
   );
 }
