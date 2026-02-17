@@ -1,15 +1,10 @@
-export interface ExperienceBullet {
-  title: string;
-  description: string;
-}
-
 export interface ExperienceEntry {
   role: string;
   company: string;
   location: string;
   startDate: string;
   endDate: string;
-  bullets: ExperienceBullet[];
+  bullets: string[];
 }
 
 export const experiences: ExperienceEntry[] = [
@@ -20,26 +15,11 @@ export const experiences: ExperienceEntry[] = [
     startDate: "Oct 2024",
     endDate: "Present",
     bullets: [
-      {
-        title: "Technical Leadership",
-        description:
-          "Led a team of 8, integrating AI agents (AGENTS.md) to modernize workflows and automate code reviews.",
-      },
-      {
-        title: "VR Simulation (PTTEP)",
-        description:
-          "Developed an immersive oil rig training game using Unity 6, gamifying complex operational scenarios.",
-      },
-      {
-        title: "HR Platform (PTTEP)",
-        description:
-          "Built a scalable employee management system using Angular and Golang.",
-      },
-      {
-        title: "Multi-Tenant CMS",
-        description:
-          "Architected a game top-up platform featuring On-Demand TLS and automated transaction bots.",
-      },
+      "Led and mentored a team of 8 developers across multiple concurrent projects",
+      "Integrated AI-driven workflows (AGENTS.md, Agent Skills) to automate code reviews",
+      "Built an immersive VR oil rig training simulation for PTTEP using Unity 6",
+      "Developed enterprise HR platform with Angular + Golang for PTTEP",
+      "Architected multi-tenant game top-up CMS with On-Demand TLS & automation bots",
     ],
   },
   {
@@ -49,21 +29,10 @@ export const experiences: ExperienceEntry[] = [
     startDate: "Sep 2020",
     endDate: "Jul 2024",
     bullets: [
-      {
-        title: "Enterprise Solution Delivery",
-        description:
-          "Co-founded a software agency and served as a lead contributor, delivering tailored software solutions for enterprise clients, including True Digital Group and Maguro Group.",
-      },
-      {
-        title: "Full-Cycle Development",
-        description:
-          "Managed end-to-end development lifecycles for key client projects, ensuring strict adherence to requirements, timelines, and code quality standards.",
-      },
-      {
-        title: "Technical Versatility",
-        description:
-          "Adapted to diverse tech stacks and client environments to deliver scalable web and mobile applications.",
-      },
+      "Co-founded software agency delivering enterprise solutions",
+      "Served clients including True Digital Group and Maguro Group",
+      "Managed end-to-end development lifecycles for multiple projects",
+      "Adapted to diverse tech stacks across web and mobile platforms",
     ],
   },
   {
@@ -73,21 +42,10 @@ export const experiences: ExperienceEntry[] = [
     startDate: "Feb 2021",
     endDate: "Dec 2023",
     bullets: [
-      {
-        title: "Full-Stack Development",
-        description:
-          "Built scalable applications using Java Spring Boot, Next.js, TypeScript, and PostgreSQL deployed on Kubernetes.",
-      },
-      {
-        title: "DevOps & Quality",
-        description:
-          "Streamlined deployment via GitHub CI/CD and enforced code quality standards using SonarQube.",
-      },
-      {
-        title: "Global Collaboration",
-        description:
-          "Collaborated within an international Agile team, utilizing English for daily operations.",
-      },
+      "Built scalable apps with Java Spring Boot, Next.js, TypeScript & PostgreSQL",
+      "Deployed services on Kubernetes with GitHub CI/CD pipelines",
+      "Enforced code quality standards using SonarQube",
+      "Collaborated in an international Agile team with English as primary language",
     ],
   },
   {
@@ -97,21 +55,9 @@ export const experiences: ExperienceEntry[] = [
     startDate: "Apr 2022",
     endDate: "Mar 2023",
     bullets: [
-      {
-        title: "Dapp Development",
-        description:
-          "Built a high-performance decentralized application using Next.js and Tailwind CSS.",
-      },
-      {
-        title: "Web3 Integration",
-        description:
-          "Implemented smart contracts and NFT transactions to enable blockchain interactions.",
-      },
-      {
-        title: "Interactive Gaming",
-        description:
-          "Developed engaging gameplay systems using Phaser.",
-      },
+      "Built a high-performance DApp with Next.js & Tailwind CSS",
+      "Integrated smart contracts and NFT transactions via Web3",
+      "Developed interactive gameplay systems using Phaser",
     ],
   },
   {
@@ -121,16 +67,9 @@ export const experiences: ExperienceEntry[] = [
     startDate: "Jan 2021",
     endDate: "Apr 2022",
     bullets: [
-      {
-        title: "HR Platform Development",
-        description:
-          "Built a cross-platform solution for employee engagement using Flutter (Mobile) and Next.js (Web).",
-      },
-      {
-        title: "Backend Architecture",
-        description:
-          "Designed scalable Node.js microservices (Moleculer framework) utilizing GraphQL for real-time data synchronization.",
-      },
+      "Built cross-platform HR app with Flutter (Mobile) + Next.js (Web)",
+      "Designed Node.js microservices using Moleculer framework",
+      "Implemented GraphQL APIs for real-time data synchronization",
     ],
   },
   {
@@ -140,16 +79,10 @@ export const experiences: ExperienceEntry[] = [
     startDate: "Apr 2019",
     endDate: "Dec 2020",
     bullets: [
-      {
-        title: "Blockchain Solutions",
-        description:
-          "Developed a crypto wallet using Stellar and Firebase, and a decentralized exchange (DEX) utilizing Quorum for multisig security.",
-      },
-      {
-        title: "Smart Contracts & DApps",
-        description:
-          "Authored Solidity smart contracts and built cross-platform interfaces using React.js and React Native with Web3 integration.",
-      },
+      "Developed crypto wallet using Stellar blockchain & Firebase",
+      "Built a DEX with Quorum for multi-signature security",
+      "Authored Solidity smart contracts for on-chain logic",
+      "Created cross-platform interfaces with React.js & React Native",
     ],
   },
   {
@@ -159,16 +92,9 @@ export const experiences: ExperienceEntry[] = [
     startDate: "Oct 2018",
     endDate: "Mar 2019",
     bullets: [
-      {
-        title: "Strategic Leadership",
-        description:
-          "Promoted to Team Lead to oversee CRM system architecture, ensuring scalability and cross-functional alignment.",
-      },
-      {
-        title: "Team Management",
-        description:
-          "Led sprint planning and mentored developers, establishing best practices and rigorous code reviews to enhance delivery quality.",
-      },
+      "Promoted to lead CRM system architecture & scalability planning",
+      "Managed sprint planning and cross-functional alignment",
+      "Mentored developers with code reviews and best practices",
     ],
   },
   {
@@ -178,21 +104,11 @@ export const experiences: ExperienceEntry[] = [
     startDate: "Jun 2016",
     endDate: "Sep 2018",
     bullets: [
-      {
-        title: "Microservices Architecture",
-        description:
-          "Designed a robust system using Node.js, MongoDB, Elasticsearch, Redis, and RabbitMQ to handle massive volumes of real-time social media data (Facebook/Twitter).",
-      },
-      {
-        title: "Intelligent Automation",
-        description:
-          "Engineered an automated ticketing system with advanced algorithms for efficient task distribution.",
-      },
-      {
-        title: "Fullstack Contribution",
-        description:
-          "Developed an influencer analytics dashboard using Meteor.js and React.js, deployed via Docker.",
-      },
+      "Designed microservices with Node.js, MongoDB, Elasticsearch, Redis & RabbitMQ",
+      "Processed massive volumes of real-time social media data (Facebook/Twitter)",
+      "Built automated ticketing system with intelligent task distribution",
+      "Developed influencer analytics dashboard using Meteor.js + React.js",
+      "Containerized services with Docker for consistent deployments",
     ],
   },
   {
@@ -202,11 +118,9 @@ export const experiences: ExperienceEntry[] = [
     startDate: "Jan 2015",
     endDate: "May 2016",
     bullets: [
-      {
-        title: "Full Stack Development",
-        description:
-          "Collaborated with a Japanese team to develop 'Crowdrive' (crowdfunding platform) using ASP.NET MVC and AWS, and built mobile game web apps using PHP Laravel.",
-      },
+      "Built 'Crowdrive' crowdfunding platform with ASP.NET MVC on AWS",
+      "Collaborated with Japanese development team",
+      "Developed mobile game web apps using PHP Laravel",
     ],
   },
   {
@@ -216,11 +130,9 @@ export const experiences: ExperienceEntry[] = [
     startDate: "Apr 2014",
     endDate: "Dec 2014",
     bullets: [
-      {
-        title: "CRM System Analyst",
-        description:
-          "Developed and maintained software for SCG using ASP.NET and ABAP, coordinating requirements with clients and internal teams.",
-      },
+      "Developed & maintained CRM software for SCG using ASP.NET",
+      "Wrote backend logic with SAP ABAP",
+      "Coordinated requirements between clients and internal teams",
     ],
   },
 ];

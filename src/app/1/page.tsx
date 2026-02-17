@@ -653,9 +653,7 @@ export default function BrutalistTimeline() {
               </div>
               <ul className="exp-bullets">
                 {exp.bullets.map((b, j) => (
-                  <li key={j}>
-                    <strong>{b.title}:</strong> {b.description}
-                  </li>
+                  <li key={j}>{b}</li>
                 ))}
               </ul>
             </div>

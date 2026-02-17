@@ -457,24 +457,21 @@ export default function JapaneseAnime() {
 
         .anime-card .card-bullets li {
           position: relative;
-          font-size: 0.88rem;
-          line-height: 1.65;
-          color: rgba(238, 232, 255, 0.85);
-          margin-bottom: 10px;
-          padding: 12px 16px;
-          background: rgba(255, 255, 255, 0.04);
-          border-radius: 12px;
-          border-bottom-left-radius: 4px;
-          border: 1px solid rgba(255, 255, 255, 0.04);
+          font-size: 1rem;
+          line-height: 1.7;
+          color: rgba(238, 232, 255, 0.75);
+          margin-bottom: 6px;
+          padding-left: 16px;
         }
 
-        .anime-card .card-bullets li strong {
-          display: block;
-          color: #fff;
-          font-weight: 600;
-          font-size: 0.82rem;
-          margin-bottom: 3px;
-          letter-spacing: 0.5px;
+        .anime-card .card-bullets li::before {
+          content: '·';
+          position: absolute;
+          left: 0;
+          color: rgba(255, 143, 186, 0.6);
+          font-weight: 700;
+          font-size: 1.2rem;
+          line-height: 1.45;
         }
 
         .anime-card .card-number {
@@ -660,6 +657,8 @@ export default function JapaneseAnime() {
           box-shadow:
             0 4px 20px rgba(0, 0, 0, 0.2),
             inset 0 1px 0 rgba(255, 255, 255, 0.08);
+          overflow: hidden;
+          min-width: 0;
         }
 
         .anime-contact-link:hover {
@@ -699,21 +698,21 @@ export default function JapaneseAnime() {
         }
 
         .anime-contact-link.email .contact-icon {
-          background: rgba(255, 143, 186, 0.12);
-          border: 1px solid rgba(255, 143, 186, 0.3);
-          color: #ff8fba;
+          background: rgba(96, 196, 255, 0.12);
+          border: 1px solid rgba(96, 196, 255, 0.3);
+          color: #60c4ff;
         }
         .anime-contact-link.email:hover {
-          border-color: rgba(255, 143, 186, 0.35);
+          border-color: rgba(96, 196, 255, 0.35);
         }
 
         .anime-contact-link.youtube .contact-icon {
-          background: rgba(255, 200, 110, 0.12);
-          border: 1px solid rgba(255, 200, 110, 0.3);
-          color: #ffc86e;
+          background: rgba(255, 68, 68, 0.12);
+          border: 1px solid rgba(255, 68, 68, 0.3);
+          color: #ff4444;
         }
         .anime-contact-link.youtube:hover {
-          border-color: rgba(255, 200, 110, 0.35);
+          border-color: rgba(255, 68, 68, 0.35);
         }
 
         .anime-contact-link .contact-label {
@@ -727,6 +726,10 @@ export default function JapaneseAnime() {
           font-size: 0.8rem;
           color: rgba(238, 232, 255, 0.5);
           margin-top: 2px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          max-width: 100%;
         }
 
         /* ===== FOOTER ===== */
@@ -759,15 +762,77 @@ export default function JapaneseAnime() {
         }
 
         @media (max-width: 768px) {
-          .anime-hero { padding: 50px 20px 40px; }
-          .anime-content { padding: 0 20px 40px; }
-          .anime-card { flex-direction: column; gap: 20px; padding: 28px 24px; }
+          .anime-hero { padding: 40px 20px 30px; }
+          .anime-hero .kanji-badge {
+            font-size: 0.65rem;
+            padding: 6px 18px;
+            letter-spacing: 2px;
+            margin-bottom: 16px;
+          }
+          .anime-hero .kanji-badge::before,
+          .anime-hero .kanji-badge::after {
+            font-size: 0.4rem;
+            margin: 0 4px;
+          }
+          .anime-hero h1 { font-size: clamp(2.5rem, 12vw, 4rem); }
+          .anime-hero .subtitle { font-size: 0.85rem; letter-spacing: 1px; }
+          .anime-download {
+            padding: 11px 24px;
+            font-size: 0.75rem;
+            margin-top: 18px;
+          }
+          .anime-nav {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 6px;
+            padding: 0 20px 30px;
+          }
+          .anime-nav a {
+            font-size: 0.6rem;
+            padding: 8px 8px;
+            letter-spacing: 1.5px;
+            text-align: center;
+          }
+          .anime-skill-tag {
+            font-size: 0.72rem;
+            padding: 6px 14px;
+          }
+          .anime-skills-grid { gap: 6px; }
+          .anime-content { padding: 0 16px 20px; gap: 12px; }
+          .anime-section-divider {
+            padding: 0 16px;
+            margin: 0 0 20px;
+          }
+          .anime-section-divider h2 {
+            font-size: 1rem;
+            letter-spacing: 3px;
+            white-space: normal;
+            text-align: center;
+          }
+          .anime-card { flex-direction: column; gap: 16px; padding: 24px 20px; }
           .anime-card .card-left { width: 100%; position: static; }
-          .anime-section-divider { padding: 0 20px; }
-          .anime-about { padding: 28px 24px; }
+          .anime-card .card-bullets li { font-size: 0.8rem; }
+          .anime-about { padding: 20px 18px; }
           .anime-edu-card { flex-direction: column; text-align: center; }
           .anime-edu-meta { justify-content: center; }
-          .anime-contact-grid { grid-template-columns: 1fr; }
+          .anime-contact-grid {
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0;
+          }
+          .anime-contact-link {
+            justify-content: center;
+            padding: 12px;
+            background: none;
+            border: none;
+            box-shadow: none;
+            backdrop-filter: none;
+            -webkit-backdrop-filter: none;
+          }
+          .anime-contact-link:hover {
+            background: none;
+            box-shadow: none;
+          }
+          .anime-contact-link .contact-label { display: none; }
         }
       `}</style>
 
@@ -884,10 +949,7 @@ export default function JapaneseAnime() {
                 <div className="card-right">
                   <ul className="card-bullets">
                     {exp.bullets.map((b, j) => (
-                      <li key={j}>
-                        <strong>{b.title}</strong>
-                        {b.description}
-                      </li>
+                      <li key={j}>{b}</li>
                     ))}
                   </ul>
                 </div>
@@ -907,8 +969,8 @@ export default function JapaneseAnime() {
               <h3>{education.institution}</h3>
               <div className="edu-degree">{education.degree}</div>
               <div className="anime-edu-meta">
-                <span className="edu-year">📅 {education.startYear} — {education.endYear}</span>
-                <span className="edu-gpa">📊 GPA: {education.gpa}</span>
+                <span className="edu-year">{education.startYear} — {education.endYear}</span>
+                <span className="edu-gpa">GPA: {education.gpa}</span>
               </div>
             </div>
           </div>
@@ -952,9 +1014,6 @@ export default function JapaneseAnime() {
                 </div>
                 <div>
                   <div className="contact-label">{link.label}</div>
-                  <div className="contact-handle">
-                    {link.icon === 'email' ? 'tat.kittitat@gmail.com' : link.url.replace(/https?:\/\//, '').replace(/\/$/, '')}
-                  </div>
                 </div>
               </a>
             ))}
@@ -962,7 +1021,7 @@ export default function JapaneseAnime() {
         </div>
 
         <div className="anime-footer">
-          resume.bytat.dev — Kittitat Upaphong
+          RESUME — KITTITAT UPAPHONG
         </div>
       </div>
     </>

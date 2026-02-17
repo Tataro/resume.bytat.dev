@@ -279,9 +279,7 @@ export default function EditorialMagazine() {
                   </div>
                   <ul className="entry-bullets">
                     {exp.bullets.map((b, j) => (
-                      <li key={j}>
-                        <strong>{b.title}:</strong> {b.description}
-                      </li>
+                      <li key={j}>{b}</li>
                     ))}
                   </ul>
                 </div>
