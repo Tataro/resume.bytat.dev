@@ -275,7 +275,7 @@ export default function JapaneseAnime() {
           -webkit-backdrop-filter: blur(24px) saturate(1.4);
           overflow: hidden;
           line-height: 1.8;
-          font-size: 0.95rem;
+          font-size: 1rem;
           color: rgba(238, 232, 255, 0.88);
           box-shadow:
             0 8px 32px rgba(0, 0, 0, 0.3),
@@ -812,7 +812,7 @@ export default function JapaneseAnime() {
           .anime-card { flex-direction: column; gap: 16px; padding: 24px 20px; }
           .anime-card .card-left { width: 100%; position: static; }
           .anime-card .card-bullets li { font-size: 0.8rem; }
-          .anime-about { padding: 20px 18px; }
+          .anime-about { padding: 20px 18px; font-size: 0.85rem; }
           .anime-edu-card { flex-direction: column; text-align: center; }
           .anime-edu-meta { justify-content: center; }
           .anime-contact-grid {
