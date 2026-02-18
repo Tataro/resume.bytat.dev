@@ -630,21 +630,21 @@ export default function JapaneseAnime() {
           position: absolute;
           top: 0; left: 0;
           width: 100%; height: 3px;
-          background: linear-gradient(90deg, #ffc86e, #ff8fba);
+          background: linear-gradient(90deg, #5ee8b7, #6dd8ff);
         }
 
         .anime-edu-icon {
           flex-shrink: 0;
           width: 72px; height: 72px;
           border-radius: 50%;
-          background: rgba(255, 200, 110, 0.12);
-          border: 2px solid rgba(255, 200, 110, 0.3);
+          background: rgba(52, 211, 153, 0.12);
+          border: 2px solid rgba(52, 211, 153, 0.3);
           display: flex;
           align-items: center;
           justify-content: center;
           font-size: 2rem;
-          color: #ffc86e;
-          box-shadow: 0 0 20px rgba(255, 184, 77, 0.1);
+          color: #5ee8b7;
+          box-shadow: 0 0 20px rgba(52, 211, 153, 0.1);
         }
 
         .anime-edu-info h3 {
@@ -677,8 +677,8 @@ export default function JapaneseAnime() {
         }
 
         .anime-edu-meta .edu-year {
-          background: rgba(255, 200, 110, 0.15);
-          color: #ffc86e;
+          background: rgba(52, 211, 153, 0.15);
+          color: #5ee8b7;
         }
 
         .anime-edu-meta .edu-gpa {
@@ -1083,7 +1083,7 @@ export default function JapaneseAnime() {
 
         {/* Education */}
         <div id="education" className="anime-content">
-          <div className="anime-section-divider gold">
+          <div className="anime-section-divider green">
             <h2>★ Education ★</h2>
           </div>
           <div className="anime-edu-card">
@@ -1117,7 +1117,7 @@ export default function JapaneseAnime() {
 
         {/* Contact */}
         <div id="contact" className="anime-content">
-          <div className="anime-section-divider green">
+          <div className="anime-section-divider gold">
             <h2>★ Contact ★</h2>
           </div>
           <div className="anime-contact-grid">
