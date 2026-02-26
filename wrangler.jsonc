@@ -1,14 +1,12 @@
 {
-    "$schema": "./node_modules/wrangler/config-schema.json",
-    "main": ".open-next/worker.js",
+    "$schema": "node_modules/wrangler/config-schema.json",
     "name": "resume-bytat",
-    // Set this to today's date
-    "compatibility_date": "2026-02-17",
+    "main": "vinext/server/app-router-entry",
+    "compatibility_date": "2026-02-26",
     "compatibility_flags": [
         "nodejs_compat"
     ],
     "assets": {
-        "directory": ".open-next/assets",
-        "binding": "ASSETS"
+        "not_found_handling": "none"
     }
 }

@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { experiences } from "@/lib/experience-data";
 import { Linkedin, Github, Mail, Youtube, GraduationCap, Award, Download } from "lucide-react";
 import ThemeToggle from "@/components/ThemeToggle";
-import { Outfit, Zen_Maru_Gothic } from "next/font/google";
+import googleFonts from "next/font/google";
+const { Outfit, Zen_Maru_Gothic } = googleFonts;
 import {
   about,
   skills,
