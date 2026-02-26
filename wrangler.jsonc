@@ -1,7 +1,7 @@
 {
     "$schema": "node_modules/wrangler/config-schema.json",
     "name": "resume-bytat",
-    "main": "vinext/server/app-router-entry",
+    "main": "./worker/index.ts",
     "compatibility_date": "2026-02-26",
     "compatibility_flags": [
         "nodejs_compat"
