@@ -7,6 +7,8 @@
         "nodejs_compat"
     ],
     "assets": {
+        "directory": "dist/client",
+        "binding": "ASSETS",
         "not_found_handling": "none"
     }
 }
