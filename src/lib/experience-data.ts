@@ -16,7 +16,8 @@ export const experiences: ExperienceEntry[] = [
     endDate: "Present",
     bullets: [
       "Led and mentored a team of 8 developers across multiple concurrent projects",
-      "Integrated AI-driven workflows (AGENTS.md, Agent Skills) to automate code reviews",
+      "Authored AGENTS.md and Agent Skills to standardize LLM-assisted development across the team",
+      "Integrated MCP servers (GitHub, Figma) into the team's AI workflow to enable context-aware, tool-augmented coding agents",
       "Built an immersive VR oil rig training simulation for PTTEP using Unity 6",
       "Developed enterprise HR platform with Angular + Golang for PTTEP",
       "Architected multi-tenant game top-up CMS with On-Demand TLS & automation bots",
