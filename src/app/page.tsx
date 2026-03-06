@@ -1106,13 +1106,31 @@ export default function JapaneseAnime() {
             <h2>★ Certifications & Licenses ★</h2>
           </div>
           <div className="anime-certs-grid">
-            {certifications.map((cert) => (
-              <div key={cert.title} className="anime-cert-card">
-                <div className="cert-icon"><Award size={24} /></div>
-                <h3>{cert.title}</h3>
-                <p>{cert.description}</p>
-              </div>
-            ))}
+            {certifications.map((cert) => {
+              const inner = (
+                <>
+                  <div className="cert-icon"><Award size={24} /></div>
+                  <h3>{cert.title}</h3>
+                  <p>{cert.description}</p>
+                </>
+              );
+              return cert.url ? (
+                <a
+                  key={cert.title}
+                  href={cert.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="anime-cert-card"
+                  style={{ textDecoration: "none" }}
+                >
+                  {inner}
+                </a>
+              ) : (
+                <div key={cert.title} className="anime-cert-card">
+                  {inner}
+                </div>
+              );
+            })}
           </div>
         </div>
 

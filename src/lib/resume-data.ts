@@ -37,6 +37,11 @@ export const education = {
 
 export const certifications = [
   {
+    title: "Google AI Professional",
+    description: "Generative AI & Prompt Engineering with Google Gemini",
+    url: "https://www.udemy.com/certificate/UC-edaff505-a9c6-437e-9d90-95cd97ca1611",
+  },
+  {
     title: "TOEIC Score: 825",
     description: "Professional Working Proficiency",
   },

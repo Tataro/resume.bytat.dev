@@ -682,15 +682,33 @@ export default function BrutalistTimeline() {
         <div id="certifications" className="brutalist-section-title">Certifications</div>
         <div className="brutalist-certs">
           <div className="brutalist-certs-grid">
-            {certifications.map((cert) => (
-              <div key={cert.title} className="brutalist-cert-card">
-                <div className="brutalist-cert-icon">
-                  <Award size={22} />
+            {certifications.map((cert) => {
+              const inner = (
+                <>
+                  <div className="brutalist-cert-icon">
+                    <Award size={22} />
+                  </div>
+                  <h3>{cert.title}</h3>
+                  <p>{cert.description}</p>
+                </>
+              );
+              return cert.url ? (
+                <a
+                  key={cert.title}
+                  href={cert.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="brutalist-cert-card"
+                  style={{ textDecoration: "none" }}
+                >
+                  {inner}
+                </a>
+              ) : (
+                <div key={cert.title} className="brutalist-cert-card">
+                  {inner}
                 </div>
-                <h3>{cert.title}</h3>
-                <p>{cert.description}</p>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
 
