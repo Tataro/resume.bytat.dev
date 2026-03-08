@@ -6,7 +6,50 @@ import {
   certifications,
   contactLinks,
 } from "@/lib/resume-data";
-import { Linkedin, Github, Mail, Youtube, GraduationCap, Award, Download } from "lucide-react";
+import {
+  Linkedin,
+  Github,
+  Mail,
+  Youtube,
+  GraduationCap,
+  Award,
+  Download,
+} from "lucide-react";
+import localFont from "next/font/local";
+
+const spaceMono = localFont({
+  src: [
+    {
+      path: "../../../fonts/space-mono/SpaceMono-Regular.ttf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../../../fonts/space-mono/SpaceMono-Italic.ttf",
+      weight: "400",
+      style: "italic",
+    },
+    {
+      path: "../../../fonts/space-mono/SpaceMono-Bold.ttf",
+      weight: "700",
+      style: "normal",
+    },
+    {
+      path: "../../../fonts/space-mono/SpaceMono-BoldItalic.ttf",
+      weight: "700",
+      style: "italic",
+    },
+  ],
+  display: "swap",
+  variable: "--font-space-mono",
+});
+
+const bebasNeue = localFont({
+  src: "../../../fonts/bebas-neue/BebasNeue-Regular.ttf",
+  weight: "400",
+  display: "swap",
+  variable: "--font-bebas-neue",
+});
 
 export default function BrutalistTimeline() {
   const contactIcons: Record<string, React.ReactNode> = {
@@ -19,12 +62,10 @@ export default function BrutalistTimeline() {
   return (
     <>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Bebas+Neue&display=swap');
-
         html { scroll-behavior: smooth; }
 
         .brutalist-page {
-          font-family: 'Space Mono', monospace;
+          font-family: var(--font-space-mono), monospace;
           background: #f5f5f0;
           color: #0a0a0a;
           min-height: 100vh;
@@ -53,7 +94,7 @@ export default function BrutalistTimeline() {
         }
 
         .brutalist-header h1 {
-          font-family: 'Bebas Neue', sans-serif;
+          font-family: var(--font-bebas-neue), sans-serif;
           font-size: clamp(4rem, 10vw, 9rem);
           line-height: 0.85;
           letter-spacing: -3px;
@@ -84,7 +125,7 @@ export default function BrutalistTimeline() {
           padding: 14px 28px;
           background: #0a0a0a;
           color: #fff;
-          font-family: 'Space Mono', monospace;
+          font-family: var(--font-space-mono), monospace;
           font-size: 0.75rem;
           font-weight: 700;
           letter-spacing: 3px;
@@ -111,7 +152,7 @@ export default function BrutalistTimeline() {
         }
 
         .brutalist-nav a {
-          font-family: 'Space Mono', monospace;
+          font-family: var(--font-space-mono), monospace;
           font-size: 0.7rem;
           font-weight: 700;
           letter-spacing: 3px;
@@ -130,7 +171,7 @@ export default function BrutalistTimeline() {
 
         /* ===== SECTION TITLE ===== */
         .brutalist-section-title {
-          font-family: 'Bebas Neue', sans-serif;
+          font-family: var(--font-bebas-neue), sans-serif;
           font-size: clamp(2.5rem, 6vw, 5rem);
           text-transform: uppercase;
           letter-spacing: 4px;
@@ -171,7 +212,7 @@ export default function BrutalistTimeline() {
           left: 24px;
           background: #e63946;
           color: #fff;
-          font-family: 'Space Mono', monospace;
+          font-family: var(--font-space-mono), monospace;
           font-size: 0.65rem;
           font-weight: 700;
           letter-spacing: 3px;
@@ -200,7 +241,7 @@ export default function BrutalistTimeline() {
         }
 
         .brutalist-skill {
-          font-family: 'Space Mono', monospace;
+          font-family: var(--font-space-mono), monospace;
           font-size: 0.72rem;
           font-weight: 700;
           letter-spacing: 1px;
@@ -280,7 +321,7 @@ export default function BrutalistTimeline() {
         }
 
         .exp-date {
-          font-family: 'Bebas Neue', sans-serif;
+          font-family: var(--font-bebas-neue), sans-serif;
           font-size: 1.3rem;
           letter-spacing: 3px;
           color: #e63946;
@@ -337,7 +378,7 @@ export default function BrutalistTimeline() {
         }
 
         .brutalist-idx {
-          font-family: 'Bebas Neue', sans-serif;
+          font-family: var(--font-bebas-neue), sans-serif;
           font-size: 4rem;
           color: rgba(230, 57, 70, 0.12);
           position: absolute;
@@ -378,7 +419,7 @@ export default function BrutalistTimeline() {
         }
 
         .brutalist-edu-info h3 {
-          font-family: 'Bebas Neue', sans-serif;
+          font-family: var(--font-bebas-neue), sans-serif;
           font-size: 1.8rem;
           letter-spacing: 2px;
           margin: 0 0 4px;
@@ -397,7 +438,7 @@ export default function BrutalistTimeline() {
         }
 
         .brutalist-edu-meta span {
-          font-family: 'Space Mono', monospace;
+          font-family: var(--font-space-mono), monospace;
           font-size: 0.7rem;
           font-weight: 700;
           letter-spacing: 2px;
@@ -464,7 +505,7 @@ export default function BrutalistTimeline() {
         }
 
         .brutalist-cert-card h3 {
-          font-family: 'Bebas Neue', sans-serif;
+          font-family: var(--font-bebas-neue), sans-serif;
           font-size: 1.4rem;
           letter-spacing: 2px;
           text-transform: uppercase;
@@ -526,7 +567,7 @@ export default function BrutalistTimeline() {
         }
 
         .brutalist-contact-label {
-          font-family: 'Bebas Neue', sans-serif;
+          font-family: var(--font-bebas-neue), sans-serif;
           font-size: 1.2rem;
           letter-spacing: 2px;
           text-transform: uppercase;
@@ -594,10 +635,16 @@ export default function BrutalistTimeline() {
         }
       `}</style>
 
-      <div className="brutalist-page">
+      <div className={`brutalist-page ${spaceMono.variable} ${bebasNeue.variable}`}>
         <div className="brutalist-header">
-          <h1>Kittitat<br />Upaphong</h1>
-          <div className="subtitle">Software Engineering Lead / 10+ Years / 2014—Present</div>
+          <h1>
+            Kittitat
+            <br />
+            Upaphong
+          </h1>
+          <div className="subtitle">
+            Software Engineering Lead / 10+ Years / 2014—Present
+          </div>
           <a
             href="/files/Kittitat_Upaphong_Resume.pdf"
             download
@@ -618,32 +665,57 @@ export default function BrutalistTimeline() {
         </nav>
 
         {/* ===== ABOUT ===== */}
-        <div id="about" className="brutalist-section-title">About</div>
+        <div id="about" className="brutalist-section-title">
+          About
+        </div>
         <div className="brutalist-about">
           <div className="brutalist-about-inner">
             <p>
-              <strong>Software Engineering Lead</strong> with over <strong>10 years of experience</strong> spanning diverse domains including <strong>Web, Mobile, VR, and Blockchain</strong>. My career demonstrates a proven track record with industry giants like <strong>True Digital Group</strong> and <strong>PTTEP</strong>, as well as scaling high-growth startups like <strong>Zanroo</strong> from inception to <strong>Series-A funding</strong>. Currently <strong>leading a team of 7-10 developers</strong>, I am passionate about evolving traditional development workflows by integrating <strong>AI-driven architectures (MCP, Sub-agents)</strong> to maximize efficiency. I thrive in collaborative environments and am seeking to join a team of talented, positive-minded professionals where we can <strong>push technological boundaries together</strong>.
+              <strong>Software Engineering Lead</strong> with over{" "}
+              <strong>10 years of experience</strong> spanning diverse domains
+              including <strong>Web, Mobile, VR, and Blockchain</strong>. My
+              career demonstrates a proven track record with industry giants
+              like <strong>True Digital Group</strong> and{" "}
+              <strong>PTTEP</strong>, as well as scaling high-growth startups
+              like <strong>Zanroo</strong> from inception to{" "}
+              <strong>Series-A funding</strong>. Currently{" "}
+              <strong>leading a team of 7-10 developers</strong>, I am
+              passionate about evolving traditional development workflows by
+              integrating{" "}
+              <strong>AI-driven architectures (MCP, Sub-agents)</strong> to
+              maximize efficiency. I thrive in collaborative environments and am
+              seeking to join a team of talented, positive-minded professionals
+              where we can{" "}
+              <strong>push technological boundaries together</strong>.
             </p>
           </div>
         </div>
 
         {/* ===== SKILLS ===== */}
-        <div id="skills" className="brutalist-section-title">Skills</div>
+        <div id="skills" className="brutalist-section-title">
+          Skills
+        </div>
         <div className="brutalist-skills">
           <div className="brutalist-skills-grid">
             {skills.map((skill) => (
-              <div key={skill} className="brutalist-skill">{skill}</div>
+              <div key={skill} className="brutalist-skill">
+                {skill}
+              </div>
             ))}
           </div>
         </div>
 
         {/* ===== EXPERIENCE ===== */}
-        <div id="experience" className="brutalist-section-title">Experience</div>
+        <div id="experience" className="brutalist-section-title">
+          Experience
+        </div>
         <div className="timeline-container">
           <div className="timeline-line" />
           {experiences.map((exp, i) => (
             <div key={i} className="experience-block">
-              <div className="brutalist-idx">{String(i + 1).padStart(2, "0")}</div>
+              <div className="brutalist-idx">
+                {String(i + 1).padStart(2, "0")}
+              </div>
               <div className="exp-date">
                 {exp.startDate} — {exp.endDate}
               </div>
@@ -661,7 +733,9 @@ export default function BrutalistTimeline() {
         </div>
 
         {/* ===== EDUCATION ===== */}
-        <div id="education" className="brutalist-section-title">Education</div>
+        <div id="education" className="brutalist-section-title">
+          Education
+        </div>
         <div className="brutalist-education">
           <div className="brutalist-edu-card">
             <div className="brutalist-edu-icon">
@@ -671,7 +745,9 @@ export default function BrutalistTimeline() {
               <h3>{education.institution}</h3>
               <div className="brutalist-edu-degree">{education.degree}</div>
               <div className="brutalist-edu-meta">
-                <span className="meta-year">{education.startYear}–{education.endYear}</span>
+                <span className="meta-year">
+                  {education.startYear}–{education.endYear}
+                </span>
                 <span className="meta-gpa">GPA {education.gpa}</span>
               </div>
             </div>
@@ -679,7 +755,9 @@ export default function BrutalistTimeline() {
         </div>
 
         {/* ===== CERTIFICATIONS ===== */}
-        <div id="certifications" className="brutalist-section-title">Certifications</div>
+        <div id="certifications" className="brutalist-section-title">
+          Certifications
+        </div>
         <div className="brutalist-certs">
           <div className="brutalist-certs-grid">
             {certifications.map((cert) => {
@@ -713,7 +791,9 @@ export default function BrutalistTimeline() {
         </div>
 
         {/* ===== CONTACT ===== */}
-        <div id="contact" className="brutalist-section-title">Contact</div>
+        <div id="contact" className="brutalist-section-title">
+          Contact
+        </div>
         <div className="brutalist-contact">
           <div className="brutalist-contact-grid">
             {contactLinks.map((link) => (
