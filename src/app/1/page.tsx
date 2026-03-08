@@ -96,7 +96,7 @@ export default function BrutalistTimeline() {
 
         .brutalist-header h1 {
           font-family: var(--font-bebas-neue), sans-serif;
-          font-size: clamp(4rem, 10vw, 9rem);
+          font-size: clamp(3.5rem, 8vw, 6rem);
           line-height: 0.85;
           letter-spacing: -3px;
           text-transform: uppercase;
@@ -105,7 +105,7 @@ export default function BrutalistTimeline() {
         }
 
         .brutalist-header .subtitle {
-          font-size: 0.75rem;
+          font-size: 0.8rem;
           text-transform: uppercase;
           letter-spacing: 6px;
           margin-top: 16px;
@@ -173,7 +173,7 @@ export default function BrutalistTimeline() {
         /* ===== SECTION TITLE ===== */
         .brutalist-section-title {
           font-family: var(--font-bebas-neue), sans-serif;
-          font-size: clamp(2.5rem, 6vw, 5rem);
+          font-size: clamp(2rem, 5vw, 3.5rem);
           text-transform: uppercase;
           letter-spacing: 4px;
           padding: 40px 40px 20px;
@@ -221,8 +221,8 @@ export default function BrutalistTimeline() {
         }
 
         .brutalist-about p {
-          font-size: 0.82rem;
-          line-height: 1.9;
+          font-size: 0.92rem;
+          line-height: 1.85;
           color: #333;
           margin: 0;
         }
@@ -243,7 +243,7 @@ export default function BrutalistTimeline() {
 
         .brutalist-skill {
           font-family: var(--font-space-mono), monospace;
-          font-size: 0.72rem;
+          font-size: 0.78rem;
           font-weight: 700;
           letter-spacing: 1px;
           text-transform: uppercase;
@@ -323,14 +323,14 @@ export default function BrutalistTimeline() {
 
         .exp-date {
           font-family: var(--font-bebas-neue), sans-serif;
-          font-size: 1.3rem;
-          letter-spacing: 3px;
+          font-size: 1.2rem;
+          letter-spacing: 2px;
           color: #e63946;
           margin-bottom: 4px;
         }
 
         .exp-role {
-          font-size: 1.1rem;
+          font-size: 1rem;
           font-weight: 700;
           text-transform: uppercase;
           letter-spacing: 1px;
@@ -339,7 +339,7 @@ export default function BrutalistTimeline() {
         }
 
         .exp-company {
-          font-size: 0.8rem;
+          font-size: 0.85rem;
           color: #555;
           letter-spacing: 2px;
           text-transform: uppercase;
@@ -358,7 +358,7 @@ export default function BrutalistTimeline() {
           position: relative;
           padding-left: 24px;
           margin-bottom: 10px;
-          font-size: 0.78rem;
+          font-size: 0.88rem;
           line-height: 1.6;
           color: #333;
         }
@@ -374,7 +374,7 @@ export default function BrutalistTimeline() {
         .exp-bullets li strong {
           color: #0a0a0a;
           text-transform: uppercase;
-          font-size: 0.72rem;
+          font-size: 0.8rem;
           letter-spacing: 1px;
         }
 
@@ -428,7 +428,7 @@ export default function BrutalistTimeline() {
         }
 
         .brutalist-edu-degree {
-          font-size: 0.82rem;
+          font-size: 0.88rem;
           color: #333;
           margin-bottom: 12px;
         }
@@ -514,7 +514,7 @@ export default function BrutalistTimeline() {
         }
 
         .brutalist-cert-card p {
-          font-size: 0.78rem;
+          font-size: 0.85rem;
           color: #555;
           margin: 0;
           line-height: 1.5;
@@ -575,7 +575,7 @@ export default function BrutalistTimeline() {
         }
 
         .brutalist-contact-handle {
-          font-size: 0.65rem;
+          font-size: 0.75rem;
           color: #888;
           letter-spacing: 0.5px;
           margin-top: 1px;
@@ -806,24 +806,30 @@ export default function BrutalistTimeline() {
 
         @media (max-width: 768px) {
           .brutalist-header { padding: 30px 20px 20px; }
+          .brutalist-header .subtitle {
+            font-size: 0.6rem;
+            letter-spacing: 3px;
+            margin-top: 12px;
+          }
           .brutalist-download {
             position: static;
             margin-top: 16px;
             padding: 12px 20px;
             font-size: 0.65rem;
           }
-          .brutalist-section-title { padding: 30px 20px 15px; font-size: 2.5rem; }
+          .brutalist-section-title { padding: 30px 20px 15px; font-size: 1.8rem; letter-spacing: 2px; }
           .brutalist-nav {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             border-bottom: none;
           }
           .brutalist-nav a {
-            padding: 14px 10px;
-            font-size: 0.6rem;
+            padding: 12px 8px;
+            font-size: 0.55rem;
             text-align: center;
             border: 1px solid #0a0a0a;
             border-right: none;
+            letter-spacing: 2px;
           }
           .brutalist-nav a:nth-child(3n) {
             border-right: 1px solid #0a0a0a;
@@ -834,10 +840,28 @@ export default function BrutalistTimeline() {
           .experience-block::before { left: -14px; width: 24px; height: 24px; }
           .brutalist-idx { font-size: 2.5rem; }
           .brutalist-about, .brutalist-skills, .brutalist-education,
-          .brutalist-certs, .brutalist-contact { padding: 30px 20px; }
+          .brutalist-certs, .brutalist-contact { padding: 20px 16px; }
+          .brutalist-about-inner { padding: 20px 16px; }
+          .brutalist-about p { font-size: 0.75rem; line-height: 1.7; }
+          .brutalist-skill {
+            font-size: 0.58rem;
+            padding: 8px 12px;
+            letter-spacing: 0.5px;
+          }
+          .exp-date { font-size: 1rem; }
+          .exp-role { font-size: 0.82rem; }
+          .exp-company { font-size: 0.7rem; }
+          .exp-bullets li { font-size: 0.72rem; }
+          .exp-bullets li strong { font-size: 0.66rem; }
           .brutalist-edu-card { flex-direction: column; }
           .brutalist-edu-icon { width: 100%; height: 60px; }
+          .brutalist-edu-info h3 { font-size: 1.4rem; }
+          .brutalist-edu-degree { font-size: 0.75rem; }
+          .brutalist-cert-card h3 { font-size: 1.1rem; }
+          .brutalist-cert-card p { font-size: 0.72rem; }
           .brutalist-contact-grid { grid-template-columns: 1fr; }
+          .brutalist-contact-label { font-size: 1rem; }
+          .brutalist-contact-handle { font-size: 0.65rem; }
         }
       `}</style>
 
