@@ -1066,7 +1066,7 @@ export default function BrutalistTimeline() {
         </div>
 
         <div className="brutalist-footer">
-          Design 01 — Brutalist Timeline — resume.bytat.dev
+          RESUME — KITTITAT UPAPHONG
         </div>
         <BrutalistThemeToggle />
       </div>
