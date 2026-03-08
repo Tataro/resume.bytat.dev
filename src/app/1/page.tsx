@@ -16,6 +16,7 @@ import {
   Download,
 } from "lucide-react";
 import localFont from "next/font/local";
+import BrutalistThemeToggle from "./ThemeToggle";
 
 const spaceMono = localFont({
   src: [
@@ -598,6 +599,211 @@ export default function BrutalistTimeline() {
           color: #999;
         }
 
+        /* ===== THEME TOGGLE ===== */
+        .brutalist-theme-toggle {
+          position: fixed;
+          bottom: 28px;
+          right: 28px;
+          z-index: 100;
+          width: 48px;
+          height: 48px;
+          border: 3px solid #0a0a0a;
+          background: #f5f5f0;
+          color: #0a0a0a;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: all 0.15s ease;
+        }
+
+        .brutalist-theme-toggle:hover {
+          background: #e63946;
+          border-color: #e63946;
+          color: #fff;
+          transform: translate(-3px, -3px);
+          box-shadow: 6px 6px 0 #0a0a0a;
+        }
+
+        /* ===== DARK MODE ===== */
+        .brutalist-page[data-theme="dark"] {
+          background: #0a0a0a;
+          color: #f5f5f0;
+        }
+
+        .brutalist-page[data-theme="dark"]::before {
+          background-image:
+            repeating-linear-gradient(0deg, transparent, transparent 49px, #222 49px, #222 50px),
+            repeating-linear-gradient(90deg, transparent, transparent 49px, #222 49px, #222 50px);
+        }
+
+        .brutalist-page[data-theme="dark"] .brutalist-header,
+        .brutalist-page[data-theme="dark"] .brutalist-nav,
+        .brutalist-page[data-theme="dark"] .brutalist-section-title,
+        .brutalist-page[data-theme="dark"] .brutalist-about,
+        .brutalist-page[data-theme="dark"] .brutalist-skills,
+        .brutalist-page[data-theme="dark"] .brutalist-education,
+        .brutalist-page[data-theme="dark"] .brutalist-certs,
+        .brutalist-page[data-theme="dark"] .brutalist-contact {
+          border-color: #f5f5f0;
+        }
+
+        .brutalist-page[data-theme="dark"] .brutalist-footer {
+          border-top-color: #f5f5f0;
+        }
+
+        .brutalist-page[data-theme="dark"] .brutalist-header h1 {
+          color: #f5f5f0;
+        }
+
+        .brutalist-page[data-theme="dark"] .brutalist-nav a {
+          color: #f5f5f0;
+          border-right-color: #f5f5f0;
+        }
+
+        .brutalist-page[data-theme="dark"] .brutalist-nav a:hover {
+          background: #e63946;
+          color: #fff;
+        }
+
+        .brutalist-page[data-theme="dark"] .brutalist-about-inner {
+          background: #111;
+          border-color: #f5f5f0;
+        }
+
+        .brutalist-page[data-theme="dark"] .brutalist-about p {
+          color: #ccc;
+        }
+
+        .brutalist-page[data-theme="dark"] .brutalist-download {
+          background: #f5f5f0;
+          color: #0a0a0a;
+          border-color: #f5f5f0;
+        }
+
+        .brutalist-page[data-theme="dark"] .brutalist-download:hover {
+          background: #e63946;
+          border-color: #e63946;
+          color: #fff;
+          box-shadow: 6px 6px 0 #f5f5f0;
+        }
+
+        .brutalist-page[data-theme="dark"] .brutalist-skill:nth-child(4n+1) {
+          background: #111;
+          color: #f5f5f0;
+          border-color: #f5f5f0;
+        }
+
+        .brutalist-page[data-theme="dark"] .brutalist-skill:nth-child(4n+2) {
+          background: #f5f5f0;
+          color: #0a0a0a;
+          border-color: #f5f5f0;
+        }
+
+        .brutalist-page[data-theme="dark"] .brutalist-skill:nth-child(4n+4) {
+          background: #111;
+          border-color: #e63946;
+        }
+
+        .brutalist-page[data-theme="dark"] .brutalist-skill {
+          border-color: #f5f5f0;
+        }
+
+        .brutalist-page[data-theme="dark"] .timeline-line {
+          background: #f5f5f0;
+        }
+
+        .brutalist-page[data-theme="dark"] .experience-block {
+          border-bottom-color: #f5f5f0;
+        }
+
+        .brutalist-page[data-theme="dark"] .experience-block::before {
+          border-color: #f5f5f0;
+        }
+
+        .brutalist-page[data-theme="dark"] .exp-company {
+          color: #aaa;
+          border-bottom-color: #333;
+        }
+
+        .brutalist-page[data-theme="dark"] .exp-bullets li {
+          color: #ccc;
+        }
+
+        .brutalist-page[data-theme="dark"] .exp-bullets li strong {
+          color: #f5f5f0;
+        }
+
+        .brutalist-page[data-theme="dark"] .brutalist-edu-card {
+          background: #111;
+          border-color: #f5f5f0;
+        }
+
+        .brutalist-page[data-theme="dark"] .brutalist-edu-icon {
+          background: #f5f5f0;
+          color: #0a0a0a;
+        }
+
+        .brutalist-page[data-theme="dark"] .brutalist-edu-degree {
+          color: #ccc;
+        }
+
+        .brutalist-page[data-theme="dark"] .brutalist-edu-meta span {
+          border-color: #f5f5f0;
+        }
+
+        .brutalist-page[data-theme="dark"] .brutalist-edu-meta .meta-gpa {
+          background: #f5f5f0;
+          color: #0a0a0a;
+        }
+
+        .brutalist-page[data-theme="dark"] .brutalist-cert-card {
+          background: #111;
+          border-color: #f5f5f0;
+        }
+
+        .brutalist-page[data-theme="dark"] .brutalist-cert-card p {
+          color: #aaa;
+        }
+
+        .brutalist-page[data-theme="dark"] .brutalist-cert-icon {
+          background: #1a1a1a;
+          border-color: #f5f5f0;
+        }
+
+        .brutalist-page[data-theme="dark"] .brutalist-contact-link {
+          background: #111;
+          color: #f5f5f0;
+          border-color: #f5f5f0;
+        }
+
+        .brutalist-page[data-theme="dark"] .brutalist-contact-link:hover {
+          background: #f5f5f0;
+          color: #0a0a0a;
+          box-shadow: 4px 4px 0 #e63946;
+        }
+
+        .brutalist-page[data-theme="dark"] .brutalist-contact-handle {
+          color: #777;
+        }
+
+        .brutalist-page[data-theme="dark"] .brutalist-contact-link:hover .brutalist-contact-handle {
+          color: rgba(10, 10, 10, 0.6);
+        }
+
+        .brutalist-page[data-theme="dark"] .brutalist-theme-toggle {
+          background: #0a0a0a;
+          color: #f5f5f0;
+          border-color: #f5f5f0;
+        }
+
+        .brutalist-page[data-theme="dark"] .brutalist-theme-toggle:hover {
+          background: #e63946;
+          border-color: #e63946;
+          color: #fff;
+          box-shadow: 6px 6px 0 #f5f5f0;
+        }
+
         @media (max-width: 768px) {
           .brutalist-header { padding: 30px 20px 20px; }
           .brutalist-download {
@@ -636,6 +842,12 @@ export default function BrutalistTimeline() {
       `}</style>
 
       <div className={`brutalist-page ${spaceMono.variable} ${bebasNeue.variable}`}>
+        {/* Sets data-theme synchronously before first paint — prevents flash */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{if(window.matchMedia('(prefers-color-scheme: dark)').matches)document.currentScript.parentElement.dataset.theme='dark';}catch(e){}})();`,
+          }}
+        />
         <div className="brutalist-header">
           <h1>
             Kittitat
@@ -823,6 +1035,7 @@ export default function BrutalistTimeline() {
         <div className="brutalist-footer">
           Design 01 — Brutalist Timeline — resume.bytat.dev
         </div>
+        <BrutalistThemeToggle />
       </div>
     </>
   );
