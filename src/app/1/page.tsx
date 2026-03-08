@@ -627,14 +627,14 @@ export default function BrutalistTimeline() {
 
         /* ===== DARK MODE ===== */
         .brutalist-page[data-theme="dark"] {
-          background: #0a0a0a;
+          background: #1c1c1e;
           color: #f5f5f0;
         }
 
         .brutalist-page[data-theme="dark"]::before {
           background-image:
-            repeating-linear-gradient(0deg, transparent, transparent 49px, #222 49px, #222 50px),
-            repeating-linear-gradient(90deg, transparent, transparent 49px, #222 49px, #222 50px);
+            repeating-linear-gradient(0deg, transparent, transparent 49px, #3a3a3c 49px, #3a3a3c 50px),
+            repeating-linear-gradient(90deg, transparent, transparent 49px, #3a3a3c 49px, #3a3a3c 50px);
         }
 
         .brutalist-page[data-theme="dark"] .brutalist-header,
@@ -667,7 +667,7 @@ export default function BrutalistTimeline() {
         }
 
         .brutalist-page[data-theme="dark"] .brutalist-about-inner {
-          background: #111;
+          background: #2c2c2e;
           border-color: #f5f5f0;
         }
 
@@ -689,7 +689,7 @@ export default function BrutalistTimeline() {
         }
 
         .brutalist-page[data-theme="dark"] .brutalist-skill:nth-child(4n+1) {
-          background: #111;
+          background: #2c2c2e;
           color: #f5f5f0;
           border-color: #f5f5f0;
         }
@@ -701,7 +701,7 @@ export default function BrutalistTimeline() {
         }
 
         .brutalist-page[data-theme="dark"] .brutalist-skill:nth-child(4n+4) {
-          background: #111;
+          background: #2c2c2e;
           border-color: #e63946;
         }
 
@@ -735,7 +735,7 @@ export default function BrutalistTimeline() {
         }
 
         .brutalist-page[data-theme="dark"] .brutalist-edu-card {
-          background: #111;
+          background: #2c2c2e;
           border-color: #f5f5f0;
         }
 
@@ -758,7 +758,7 @@ export default function BrutalistTimeline() {
         }
 
         .brutalist-page[data-theme="dark"] .brutalist-cert-card {
-          background: #111;
+          background: #2c2c2e;
           border-color: #f5f5f0;
         }
 
@@ -767,12 +767,12 @@ export default function BrutalistTimeline() {
         }
 
         .brutalist-page[data-theme="dark"] .brutalist-cert-icon {
-          background: #1a1a1a;
+          background: #3a3a3c;
           border-color: #f5f5f0;
         }
 
         .brutalist-page[data-theme="dark"] .brutalist-contact-link {
-          background: #111;
+          background: #2c2c2e;
           color: #f5f5f0;
           border-color: #f5f5f0;
         }
@@ -792,7 +792,7 @@ export default function BrutalistTimeline() {
         }
 
         .brutalist-page[data-theme="dark"] .brutalist-theme-toggle {
-          background: #0a0a0a;
+          background: #1c1c1e;
           color: #f5f5f0;
           border-color: #f5f5f0;
         }
@@ -802,6 +802,15 @@ export default function BrutalistTimeline() {
           border-color: #e63946;
           color: #fff;
           box-shadow: 6px 6px 0 #f5f5f0;
+        }
+
+        @media (max-width: 768px) {
+          .brutalist-page[data-theme="dark"] .brutalist-nav a {
+            border-color: #f5f5f0;
+          }
+          .brutalist-page[data-theme="dark"] .brutalist-nav a:nth-child(3n) {
+            border-right-color: #f5f5f0;
+          }
         }
 
         @media (max-width: 768px) {
