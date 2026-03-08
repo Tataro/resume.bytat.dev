@@ -1,9 +1,18 @@
 import type { Metadata } from "next";
 import { experiences } from "@/lib/experience-data";
-import { Linkedin, Github, Mail, Youtube, GraduationCap, Award, Download } from "lucide-react";
+import {
+  Linkedin,
+  Github,
+  Mail,
+  Youtube,
+  GraduationCap,
+  Award,
+  Download,
+} from "lucide-react";
 import ThemeToggle from "@/components/ThemeToggle";
 import googleFonts from "next/font/google";
-const { Outfit, Zen_Maru_Gothic } = googleFonts;
+import localFont from "next/font/local";
+const { Zen_Maru_Gothic } = googleFonts;
 import {
   about,
   skills,
@@ -12,11 +21,33 @@ import {
   contactLinks,
 } from "@/lib/resume-data";
 
-const outfit = Outfit({
-  subsets: ["latin"],
-  weight: ["300", "400", "600", "800", "900"],
+const outfit = localFont({
+  src: [
+    {
+      path: "../../fonts/outfit/Outfit-Bold.ttf",
+      weight: "700",
+    },
+    {
+      path: "../../fonts/outfit/Outfit-SemiBold.ttf",
+      weight: "600",
+    },
+    {
+      path: "../../fonts/outfit/Outfit-Medium.ttf",
+      weight: "500",
+    },
+    {
+      path: "../../fonts/outfit/Outfit-Regular.ttf",
+      weight: "400",
+    },
+  ],
   display: "swap",
   variable: "--font-outfit",
+  declarations: [
+    {
+      prop: "font-family",
+      value: "Outfit",
+    },
+  ],
 });
 
 const zenMaru = Zen_Maru_Gothic({
@@ -964,25 +995,37 @@ export default function JapaneseAnime() {
         <div
           className="anime-shape"
           style={{
-            width: 300, height: 300, top: '10%', left: '-5%',
-            background: 'radial-gradient(circle, rgba(120,160,190,0.06), transparent 70%)',
-            animationDelay: '0s',
+            width: 300,
+            height: 300,
+            top: "10%",
+            left: "-5%",
+            background:
+              "radial-gradient(circle, rgba(120,160,190,0.06), transparent 70%)",
+            animationDelay: "0s",
           }}
         />
         <div
           className="anime-shape"
           style={{
-            width: 250, height: 250, top: '50%', right: '-8%',
-            background: 'radial-gradient(circle, rgba(70,140,180,0.05), transparent 70%)',
-            animationDelay: '2s',
+            width: 250,
+            height: 250,
+            top: "50%",
+            right: "-8%",
+            background:
+              "radial-gradient(circle, rgba(70,140,180,0.05), transparent 70%)",
+            animationDelay: "2s",
           }}
         />
         <div
           className="anime-shape"
           style={{
-            width: 200, height: 200, bottom: '10%', left: '15%',
-            background: 'radial-gradient(circle, rgba(200,155,80,0.05), transparent 70%)',
-            animationDelay: '4s',
+            width: 200,
+            height: 200,
+            bottom: "10%",
+            left: "15%",
+            background:
+              "radial-gradient(circle, rgba(200,155,80,0.05), transparent 70%)",
+            animationDelay: "4s",
           }}
         />
 
@@ -1003,7 +1046,11 @@ export default function JapaneseAnime() {
           </div>
 
           <div className="kanji-badge">Senior Full Stack Engineer</div>
-          <h1>Kittitat<br />Upaphong</h1>
+          <h1>
+            Kittitat
+            <br />
+            Upaphong
+          </h1>
           <div className="subtitle">
             10+ Years of Experience ✦ Web · Mobile · VR · Blockchain
           </div>
@@ -1034,7 +1081,20 @@ export default function JapaneseAnime() {
           </div>
           <div className="anime-about">
             <span className="about-quote-mark">&ldquo;</span>
-            <strong>Software Engineering Lead</strong> with over <strong>10 years of experience</strong> spanning diverse domains including <strong>Web, Mobile, VR, and Blockchain</strong>. My career demonstrates a proven track record with industry giants like <strong>True Digital Group</strong> and <strong>PTTEP</strong>, as well as scaling high-growth startups like <strong>Zanroo</strong> from inception to <strong>Series-A funding</strong>. Currently <strong>leading a team of 7-10 developers</strong>, I am passionate about evolving traditional development workflows by integrating <strong>AI-driven architectures (MCP, Sub-agents)</strong> to maximize efficiency. I thrive in collaborative environments and am seeking to join a team of talented, positive-minded professionals where we can <strong>push technological boundaries together</strong>.
+            <strong>Software Engineering Lead</strong> with over{" "}
+            <strong>10 years of experience</strong> spanning diverse domains
+            including <strong>Web, Mobile, VR, and Blockchain</strong>. My
+            career demonstrates a proven track record with industry giants like{" "}
+            <strong>True Digital Group</strong> and <strong>PTTEP</strong>, as
+            well as scaling high-growth startups like <strong>Zanroo</strong>{" "}
+            from inception to <strong>Series-A funding</strong>. Currently{" "}
+            <strong>leading a team of 7-10 developers</strong>, I am passionate
+            about evolving traditional development workflows by integrating{" "}
+            <strong>AI-driven architectures (MCP, Sub-agents)</strong> to
+            maximize efficiency. I thrive in collaborative environments and am
+            seeking to join a team of talented, positive-minded professionals
+            where we can <strong>push technological boundaries together</strong>
+            .
           </div>
         </div>
 
@@ -1045,7 +1105,9 @@ export default function JapaneseAnime() {
           </div>
           <div className="anime-skills-grid">
             {skills.map((skill) => (
-              <span key={skill} className="anime-skill-tag">{skill}</span>
+              <span key={skill} className="anime-skill-tag">
+                {skill}
+              </span>
             ))}
           </div>
         </div>
@@ -1088,12 +1150,16 @@ export default function JapaneseAnime() {
             <h2>★ Education ★</h2>
           </div>
           <div className="anime-edu-card">
-            <div className="anime-edu-icon"><GraduationCap size={32} /></div>
+            <div className="anime-edu-icon">
+              <GraduationCap size={32} />
+            </div>
             <div className="anime-edu-info">
               <h3>{education.institution}</h3>
               <div className="edu-degree">{education.degree}</div>
               <div className="anime-edu-meta">
-                <span className="edu-year">{education.startYear} — {education.endYear}</span>
+                <span className="edu-year">
+                  {education.startYear} — {education.endYear}
+                </span>
                 <span className="edu-gpa">GPA: {education.gpa}</span>
               </div>
             </div>
@@ -1109,7 +1175,9 @@ export default function JapaneseAnime() {
             {certifications.map((cert) => {
               const inner = (
                 <>
-                  <div className="cert-icon"><Award size={24} /></div>
+                  <div className="cert-icon">
+                    <Award size={24} />
+                  </div>
                   <h3>{cert.title}</h3>
                   <p>{cert.description}</p>
                 </>
@@ -1144,15 +1212,15 @@ export default function JapaneseAnime() {
               <a
                 key={link.label}
                 href={link.url}
-                target={link.icon !== 'email' ? '_blank' : undefined}
-                rel={link.icon !== 'email' ? 'noopener noreferrer' : undefined}
+                target={link.icon !== "email" ? "_blank" : undefined}
+                rel={link.icon !== "email" ? "noopener noreferrer" : undefined}
                 className={`anime-contact-link ${link.icon}`}
               >
                 <div className="contact-icon">
-                  {link.icon === 'linkedin' && <Linkedin size={22} />}
-                  {link.icon === 'github' && <Github size={22} />}
-                  {link.icon === 'email' && <Mail size={22} />}
-                  {link.icon === 'youtube' && <Youtube size={22} />}
+                  {link.icon === "linkedin" && <Linkedin size={22} />}
+                  {link.icon === "github" && <Github size={22} />}
+                  {link.icon === "email" && <Mail size={22} />}
+                  {link.icon === "youtube" && <Youtube size={22} />}
                 </div>
                 <div>
                   <div className="contact-label">{link.label}</div>
@@ -1162,9 +1230,7 @@ export default function JapaneseAnime() {
           </div>
         </div>
 
-        <div className="anime-footer">
-          RESUME — KITTITAT UPAPHONG
-        </div>
+        <div className="anime-footer">RESUME — KITTITAT UPAPHONG</div>
       </div>
     </>
   );
