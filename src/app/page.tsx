@@ -1,61 +1,4 @@
 import type { Metadata } from "next";
-import { experiences } from "@/lib/experience-data";
-import {
-  Linkedin,
-  Github,
-  Mail,
-  Youtube,
-  GraduationCap,
-  Award,
-  Download,
-} from "lucide-react";
-import ThemeToggle from "@/components/ThemeToggle";
-import googleFonts from "next/font/google";
-import localFont from "next/font/local";
-const { Zen_Maru_Gothic } = googleFonts;
-import {
-  about,
-  skills,
-  education,
-  certifications,
-  contactLinks,
-} from "@/lib/resume-data";
-
-const outfit = localFont({
-  src: [
-    {
-      path: "../../fonts/outfit/Outfit-Bold.ttf",
-      weight: "700",
-    },
-    {
-      path: "../../fonts/outfit/Outfit-SemiBold.ttf",
-      weight: "600",
-    },
-    {
-      path: "../../fonts/outfit/Outfit-Medium.ttf",
-      weight: "500",
-    },
-    {
-      path: "../../fonts/outfit/Outfit-Regular.ttf",
-      weight: "400",
-    },
-  ],
-  display: "swap",
-  variable: "--font-outfit",
-  declarations: [
-    {
-      prop: "font-family",
-      value: "Outfit",
-    },
-  ],
-});
-
-const zenMaru = Zen_Maru_Gothic({
-  subsets: ["latin"],
-  weight: ["400", "700", "900"],
-  display: "swap",
-  variable: "--font-zen-maru",
-});
 
 export const metadata: Metadata = {
   title: "Kittitat Upaphong — Senior Full Stack Engineer",
@@ -89,1094 +32,1018 @@ export const metadata: Metadata = {
   },
 };
 
-export default function JapaneseAnime() {
+import { experiences } from "@/lib/experience-data";
+import {
+  about,
+  skills,
+  education,
+  certifications,
+  contactLinks,
+} from "@/lib/resume-data";
+import {
+  Linkedin,
+  Github,
+  Mail,
+  Youtube,
+  GraduationCap,
+  Award,
+  Download,
+} from "lucide-react";
+import localFont from "next/font/local";
+import BrutalistThemeToggle from "./1/ThemeToggle";
+
+const spaceMono = localFont({
+  src: [
+    {
+      path: "../../fonts/space-mono/SpaceMono-Regular.ttf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../../fonts/space-mono/SpaceMono-Italic.ttf",
+      weight: "400",
+      style: "italic",
+    },
+    {
+      path: "../../fonts/space-mono/SpaceMono-Bold.ttf",
+      weight: "700",
+      style: "normal",
+    },
+    {
+      path: "../../fonts/space-mono/SpaceMono-BoldItalic.ttf",
+      weight: "700",
+      style: "italic",
+    },
+  ],
+  display: "swap",
+  variable: "--font-space-mono",
+});
+
+const bebasNeue = localFont({
+  src: "../../fonts/bebas-neue/BebasNeue-Regular.ttf",
+  weight: "400",
+  display: "swap",
+  variable: "--font-bebas-neue",
+});
+
+export default function BrutalistTimeline() {
+  const contactIcons: Record<string, React.ReactNode> = {
+    linkedin: <Linkedin size={20} />,
+    github: <Github size={20} />,
+    email: <Mail size={20} />,
+    youtube: <Youtube size={20} />,
+  };
+
   return (
     <>
       <style>{`
-
-
         html { scroll-behavior: smooth; }
 
-        .anime-page {
-          --bg: #0c0f14;
-          --text: #e0ddd8;
-          --text-secondary: rgba(224, 221, 216, 0.68);
-          --glass-bg: rgba(255, 255, 255, 0.05);
-          --glass-border: rgba(255, 255, 255, 0.10);
-          --glass-border-hover: rgba(255, 255, 255, 0.18);
-          --glass-highlight: rgba(255, 255, 255, 0.06);
-          --glass-highlight-strong: rgba(255, 255, 255, 0.12);
-          --card-shadow: rgba(0, 0, 0, 0.4);
-          --card-shadow-light: rgba(0, 0, 0, 0.25);
-          --dot-color: rgba(255, 255, 255, 0.02);
-          --gradient-pink: rgba(120, 160, 190, 0.14);
-          --gradient-blue: rgba(45, 120, 160, 0.12);
-          --gradient-purple: rgba(100, 110, 140, 0.10);
-          --gradient-gold: rgba(200, 155, 80, 0.08);
-          --nav-bg: rgba(12, 15, 20, 0.75);
-          --skill-bg: rgba(255, 255, 255, 0.05);
-          --skill-border: rgba(255, 255, 255, 0.08);
-          --bullet-sep: rgba(255, 255, 255, 0.06);
-          --footer-bg: rgba(12, 15, 20, 0.85);
-
-          font-family: var(--font-outfit), sans-serif;
-          background: var(--bg);
-          color: var(--text);
+        .brutalist-page {
+          font-family: var(--font-space-mono), monospace;
+          background: #f5f5f0;
+          color: #0a0a0a;
           min-height: 100vh;
-          overflow-x: hidden;
           position: relative;
-          transition: background 0.4s ease, color 0.4s ease;
+          overflow-x: hidden;
         }
 
-        .anime-page[data-theme="light"] {
-          --bg: #f0ece6;
-          --text: #1c1e22;
-          --text-secondary: rgba(28, 30, 34, 0.60);
-          --glass-bg: rgba(255, 255, 255, 0.60);
-          --glass-border: rgba(0, 0, 0, 0.07);
-          --glass-border-hover: rgba(0, 0, 0, 0.14);
-          --glass-highlight: rgba(255, 255, 255, 0.55);
-          --glass-highlight-strong: rgba(255, 255, 255, 0.75);
-          --card-shadow: rgba(0, 0, 0, 0.07);
-          --card-shadow-light: rgba(0, 0, 0, 0.04);
-          --dot-color: rgba(0, 0, 0, 0.03);
-          --gradient-pink: rgba(100, 140, 170, 0.08);
-          --gradient-blue: rgba(45, 120, 160, 0.06);
-          --gradient-purple: rgba(90, 100, 130, 0.06);
-          --gradient-gold: rgba(180, 140, 70, 0.05);
-          --nav-bg: rgba(240, 236, 230, 0.88);
-          --skill-bg: rgba(0, 0, 0, 0.03);
-          --skill-border: rgba(0, 0, 0, 0.07);
-          --bullet-sep: rgba(0, 0, 0, 0.05);
-          --footer-bg: rgba(240, 236, 230, 0.92);
-        }
-
-        .anime-page::before {
+        .brutalist-page::before {
           content: '';
           position: fixed;
           top: 0; left: 0; right: 0; bottom: 0;
-          background:
-            radial-gradient(ellipse 600px 600px at 15% 30%, var(--gradient-pink) 0%, transparent 70%),
-            radial-gradient(ellipse 500px 500px at 85% 15%, var(--gradient-blue) 0%, transparent 70%),
-            radial-gradient(ellipse 500px 500px at 50% 80%, var(--gradient-purple) 0%, transparent 70%),
-            radial-gradient(ellipse 450px 450px at 70% 55%, var(--gradient-gold) 0%, transparent 70%);
+          background-image:
+            repeating-linear-gradient(0deg, transparent, transparent 49px, #ddd 49px, #ddd 50px),
+            repeating-linear-gradient(90deg, transparent, transparent 49px, #ddd 49px, #ddd 50px);
+          opacity: 0.3;
           pointer-events: none;
           z-index: 0;
         }
 
-        .anime-page::after {
+        /* ===== HEADER ===== */
+        .brutalist-header {
+          border-bottom: 8px solid #0a0a0a;
+          padding: 60px 40px 40px;
+          position: relative;
+          z-index: 1;
+        }
+
+        .brutalist-header h1 {
+          font-family: var(--font-bebas-neue), sans-serif;
+          font-size: clamp(3.5rem, 8vw, 6rem);
+          line-height: 0.85;
+          letter-spacing: -3px;
+          text-transform: uppercase;
+          margin: 0;
+          color: #0a0a0a;
+        }
+
+        .brutalist-header .subtitle {
+          font-size: 0.8rem;
+          text-transform: uppercase;
+          letter-spacing: 6px;
+          margin-top: 16px;
+          color: #e63946;
+          font-weight: 700;
+          border-top: 3px solid #e63946;
+          display: inline-block;
+          padding-top: 8px;
+        }
+
+        .brutalist-download {
+          display: inline-flex;
+          align-items: center;
+          gap: 10px;
+          position: absolute;
+          top: 40px;
+          right: 40px;
+          padding: 14px 28px;
+          background: #0a0a0a;
+          color: #fff;
+          font-family: var(--font-space-mono), monospace;
+          font-size: 0.75rem;
+          font-weight: 700;
+          letter-spacing: 3px;
+          text-transform: uppercase;
+          text-decoration: none;
+          border: 3px solid #0a0a0a;
+          transition: all 0.15s ease;
+        }
+
+        .brutalist-download:hover {
+          background: #e63946;
+          border-color: #e63946;
+          transform: translate(-3px, -3px);
+          box-shadow: 6px 6px 0 #0a0a0a;
+        }
+
+        /* ===== NAV ===== */
+        .brutalist-nav {
+          position: relative;
+          z-index: 1;
+          display: flex;
+          flex-wrap: wrap;
+          border-bottom: 4px solid #0a0a0a;
+        }
+
+        .brutalist-nav a {
+          font-family: var(--font-space-mono), monospace;
+          font-size: 0.7rem;
+          font-weight: 700;
+          letter-spacing: 3px;
+          text-transform: uppercase;
+          text-decoration: none;
+          color: #0a0a0a;
+          padding: 14px 24px;
+          border-right: 2px solid #0a0a0a;
+          transition: all 0.15s ease;
+        }
+
+        .brutalist-nav a:hover {
+          background: #e63946;
+          color: #fff;
+        }
+
+        /* ===== SECTION TITLE ===== */
+        .brutalist-section-title {
+          font-family: var(--font-bebas-neue), sans-serif;
+          font-size: clamp(2rem, 5vw, 3.5rem);
+          text-transform: uppercase;
+          letter-spacing: 4px;
+          padding: 40px 40px 20px;
+          border-bottom: 4px solid #0a0a0a;
+          position: relative;
+          z-index: 1;
+          display: flex;
+          align-items: center;
+          gap: 20px;
+        }
+
+        .brutalist-section-title::before {
+          content: '■';
+          color: #e63946;
+          font-size: 0.6em;
+        }
+
+        /* ===== ABOUT ===== */
+        .brutalist-about {
+          position: relative;
+          z-index: 1;
+          padding: 40px;
+          border-bottom: 4px solid #0a0a0a;
+        }
+
+        .brutalist-about-inner {
+          border: 4px solid #0a0a0a;
+          padding: 36px;
+          position: relative;
+          background: #fff;
+        }
+
+        .brutalist-about-inner::before {
+          content: '//ABOUT';
+          position: absolute;
+          top: -12px;
+          left: 24px;
+          background: #e63946;
+          color: #fff;
+          font-family: var(--font-space-mono), monospace;
+          font-size: 0.65rem;
+          font-weight: 700;
+          letter-spacing: 3px;
+          padding: 2px 12px;
+        }
+
+        .brutalist-about p {
+          font-size: 0.92rem;
+          line-height: 1.85;
+          color: #333;
+          margin: 0;
+        }
+
+        /* ===== SKILLS ===== */
+        .brutalist-skills {
+          position: relative;
+          z-index: 1;
+          padding: 40px;
+          border-bottom: 4px solid #0a0a0a;
+        }
+
+        .brutalist-skills-grid {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 0;
+        }
+
+        .brutalist-skill {
+          font-family: var(--font-space-mono), monospace;
+          font-size: 0.78rem;
+          font-weight: 700;
+          letter-spacing: 1px;
+          text-transform: uppercase;
+          padding: 12px 20px;
+          border: 2px solid #0a0a0a;
+          margin: -1px;
+          transition: all 0.15s ease;
+          cursor: default;
+        }
+
+        .brutalist-skill:nth-child(4n+1) {
+          background: #fff;
+          color: #0a0a0a;
+        }
+        .brutalist-skill:nth-child(4n+2) {
+          background: #0a0a0a;
+          color: #fff;
+        }
+        .brutalist-skill:nth-child(4n+3) {
+          background: #e63946;
+          color: #fff;
+        }
+        .brutalist-skill:nth-child(4n+4) {
+          background: #fff;
+          color: #e63946;
+          border-color: #e63946;
+        }
+
+        .brutalist-skill:hover {
+          background: #e63946;
+          color: #fff;
+          border-color: #e63946;
+          transform: translate(-2px, -2px);
+          box-shadow: 4px 4px 0 #0a0a0a;
+        }
+
+        /* ===== TIMELINE ===== */
+        .timeline-container {
+          position: relative;
+          z-index: 1;
+          padding: 0 40px;
+        }
+
+        .timeline-line {
+          position: absolute;
+          left: 80px;
+          top: 0; bottom: 0;
+          width: 4px;
+          background: #0a0a0a;
+        }
+
+        .experience-block {
+          position: relative;
+          padding: 40px 0 40px 80px;
+          border-bottom: 2px solid #0a0a0a;
+          transition: background 0.2s ease;
+        }
+
+        .experience-block:hover {
+          background: rgba(230, 57, 70, 0.04);
+        }
+
+        .experience-block::before {
           content: '';
-          position: fixed;
-          top: 0; left: 0; right: 0; bottom: 0;
-          background-image: radial-gradient(circle, var(--dot-color) 1px, transparent 1px);
-          background-size: 24px 24px;
-          pointer-events: none;
-          z-index: 0;
+          position: absolute;
+          left: -12px;
+          top: 48px;
+          width: 28px; height: 28px;
+          background: #e63946;
+          border: 4px solid #0a0a0a;
+          z-index: 2;
+        }
+
+        .experience-block:hover::before {
+          background: #0a0a0a;
+        }
+
+        .exp-date {
+          font-family: var(--font-bebas-neue), sans-serif;
+          font-size: 1.2rem;
+          letter-spacing: 2px;
+          color: #e63946;
+          margin-bottom: 4px;
+        }
+
+        .exp-role {
+          font-size: 1rem;
+          font-weight: 700;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          line-height: 1.3;
+          margin-bottom: 2px;
+        }
+
+        .exp-company {
+          font-size: 0.85rem;
+          color: #555;
+          letter-spacing: 2px;
+          text-transform: uppercase;
+          margin-bottom: 16px;
+          padding-bottom: 12px;
+          border-bottom: 2px dashed #ccc;
+        }
+
+        .exp-bullets {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+        }
+
+        .exp-bullets li {
+          position: relative;
+          padding-left: 24px;
+          margin-bottom: 10px;
+          font-size: 0.88rem;
+          line-height: 1.6;
+          color: #333;
+        }
+
+        .exp-bullets li::before {
+          content: '//';
+          position: absolute;
+          left: 0;
+          color: #e63946;
+          font-weight: 700;
+        }
+
+        .exp-bullets li strong {
+          color: #0a0a0a;
+          text-transform: uppercase;
+          font-size: 0.8rem;
+          letter-spacing: 1px;
+        }
+
+        .brutalist-idx {
+          font-family: var(--font-bebas-neue), sans-serif;
+          font-size: 4rem;
+          color: rgba(230, 57, 70, 0.12);
+          position: absolute;
+          right: 20px;
+          top: 20px;
+          line-height: 1;
+        }
+
+        /* ===== EDUCATION ===== */
+        .brutalist-education {
+          position: relative;
+          z-index: 1;
+          padding: 40px;
+          border-bottom: 4px solid #0a0a0a;
+        }
+
+        .brutalist-edu-card {
+          border: 4px solid #0a0a0a;
+          background: #fff;
+          display: flex;
+          align-items: stretch;
+          overflow: hidden;
+        }
+
+        .brutalist-edu-icon {
+          width: 100px;
+          background: #0a0a0a;
+          color: #fff;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-shrink: 0;
+        }
+
+        .brutalist-edu-info {
+          padding: 28px 32px;
+          flex: 1;
+        }
+
+        .brutalist-edu-info h3 {
+          font-family: var(--font-bebas-neue), sans-serif;
+          font-size: 1.8rem;
+          letter-spacing: 2px;
+          margin: 0 0 4px;
+          text-transform: uppercase;
+        }
+
+        .brutalist-edu-degree {
+          font-size: 0.88rem;
+          color: #333;
+          margin-bottom: 12px;
+        }
+
+        .brutalist-edu-meta {
+          display: flex;
+          gap: 0;
+        }
+
+        .brutalist-edu-meta span {
+          font-family: var(--font-space-mono), monospace;
+          font-size: 0.7rem;
+          font-weight: 700;
+          letter-spacing: 2px;
+          text-transform: uppercase;
+          padding: 6px 16px;
+          border: 2px solid #0a0a0a;
+          margin-right: -2px;
+        }
+
+        .brutalist-edu-meta .meta-year {
+          background: #e63946;
+          color: #fff;
+          border-color: #e63946;
+        }
+
+        .brutalist-edu-meta .meta-gpa {
+          background: #0a0a0a;
+          color: #fff;
+        }
+
+        /* ===== CERTIFICATIONS ===== */
+        .brutalist-certs {
+          position: relative;
+          z-index: 1;
+          padding: 40px;
+          border-bottom: 4px solid #0a0a0a;
+        }
+
+        .brutalist-certs-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+          gap: 0;
+        }
+
+        .brutalist-cert-card {
+          border: 4px solid #0a0a0a;
+          padding: 28px;
+          background: #fff;
+          margin: -2px;
+          transition: all 0.15s ease;
+          position: relative;
+        }
+
+        .brutalist-cert-card:hover {
+          background: #e63946;
+          color: #fff;
+          transform: translate(-3px, -3px);
+          box-shadow: 6px 6px 0 #0a0a0a;
+        }
+
+        .brutalist-cert-icon {
+          width: 48px; height: 48px;
+          border: 3px solid #0a0a0a;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-bottom: 16px;
+          background: #f5f5f0;
+        }
+
+        .brutalist-cert-card:hover .brutalist-cert-icon {
+          background: #fff;
+          color: #e63946;
+        }
+
+        .brutalist-cert-card h3 {
+          font-family: var(--font-bebas-neue), sans-serif;
+          font-size: 1.4rem;
+          letter-spacing: 2px;
+          text-transform: uppercase;
+          margin: 0 0 6px;
+        }
+
+        .brutalist-cert-card p {
+          font-size: 0.85rem;
+          color: #555;
+          margin: 0;
+          line-height: 1.5;
+        }
+
+        .brutalist-cert-card:hover p {
+          color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* ===== CONTACT ===== */
+        .brutalist-contact {
+          position: relative;
+          z-index: 1;
+          padding: 40px;
+          border-bottom: 4px solid #0a0a0a;
+        }
+
+        .brutalist-contact-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+          gap: 0;
+        }
+
+        .brutalist-contact-link {
+          display: flex;
+          align-items: center;
+          gap: 16px;
+          padding: 20px 24px;
+          border: 3px solid #0a0a0a;
+          margin: -1.5px;
+          text-decoration: none;
+          color: #0a0a0a;
+          background: #fff;
+          transition: all 0.15s ease;
+        }
+
+        .brutalist-contact-link:hover {
+          background: #0a0a0a;
+          color: #fff;
+          transform: translate(-2px, -2px);
+          box-shadow: 4px 4px 0 #e63946;
+        }
+
+        .brutalist-contact-icon {
+          width: 44px; height: 44px;
+          border: 3px solid currentColor;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-shrink: 0;
+        }
+
+        .brutalist-contact-label {
+          font-family: var(--font-bebas-neue), sans-serif;
+          font-size: 1.2rem;
+          letter-spacing: 2px;
+          text-transform: uppercase;
+        }
+
+        .brutalist-contact-handle {
+          font-size: 0.75rem;
+          color: #888;
+          letter-spacing: 0.5px;
+          margin-top: 1px;
+          word-break: break-all;
+        }
+
+        .brutalist-contact-link:hover .brutalist-contact-handle {
+          color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* ===== FOOTER ===== */
+        .brutalist-footer {
+          border-top: 8px solid #0a0a0a;
+          padding: 30px 40px;
+          font-size: 0.7rem;
+          letter-spacing: 4px;
+          text-transform: uppercase;
+          text-align: center;
+          position: relative;
+          z-index: 1;
+          color: #999;
         }
 
         /* ===== THEME TOGGLE ===== */
-        .theme-toggle {
+        .brutalist-theme-toggle {
           position: fixed;
           bottom: 28px;
           right: 28px;
           z-index: 100;
           width: 48px;
           height: 48px;
-          border-radius: 50%;
-          border: 1px solid var(--glass-border);
-          background: var(--glass-bg);
-          backdrop-filter: blur(20px);
-          -webkit-backdrop-filter: blur(20px);
-          color: var(--text);
+          border: 3px solid #0a0a0a;
+          background: #f5f5f0;
+          color: #0a0a0a;
           cursor: pointer;
           display: flex;
           align-items: center;
           justify-content: center;
-          transition: all 0.3s ease;
-          box-shadow: 0 4px 20px var(--card-shadow-light);
-        }
-
-        .theme-toggle:hover {
-          transform: scale(1.1);
-          border-color: var(--glass-border-hover);
-          box-shadow: 0 8px 32px var(--card-shadow);
-        }
-
-        /* ===== LIQUID GLASS MIXIN ===== */
-
-        /* ===== HERO ===== */
-        .anime-hero {
-          position: relative;
-          z-index: 1;
-          padding: 80px 40px 60px;
-          text-align: center;
-        }
-
-        .speed-lines {
-          position: absolute;
-          top: 50%; left: 50%;
-          width: 200%; height: 200%;
-          transform: translate(-50%, -50%);
-          pointer-events: none;
-          overflow: hidden;
-        }
-
-        .speed-line {
-          position: absolute;
-          top: 50%; left: 50%;
-          height: 2px;
-          transform-origin: left center;
-          background: linear-gradient(90deg, transparent, rgba(120, 160, 190, 0.20), transparent);
-          animation: speed-shoot 3s linear infinite;
-        }
-
-        @keyframes speed-shoot {
-          0% { opacity: 0; width: 0; }
-          20% { opacity: 1; }
-          100% { opacity: 0; width: 600px; }
-        }
-
-        .anime-hero h1 {
-          font-family: var(--font-zen-maru), var(--font-outfit), sans-serif;
-          font-size: clamp(3.5rem, 9vw, 7rem);
-          font-weight: 900;
-          line-height: 1.15;
-          margin: 0 0 16px;
-          padding-bottom: 10px;
-          background: linear-gradient(135deg, #8ab4cc, #c8a05a, #a0b0c0);
-          background-size: 200% 200%;
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-clip: text;
-          animation: gradient-shift 4s ease infinite;
-          position: relative;
-          filter: drop-shadow(0 2px 12px rgba(138, 180, 204, 0.20));
-        }
-
-        @keyframes gradient-shift {
-          0%, 100% { background-position: 0% 50%; }
-          50% { background-position: 100% 50%; }
-        }
-
-        .anime-hero .kanji-badge {
-          display: inline-block;
-          font-family: var(--font-zen-maru), sans-serif;
-          font-size: 0.85rem;
-          font-weight: 700;
-          padding: 8px 28px;
-          border: 2px solid rgba(138, 180, 204, 0.40);
-          color: #8ab4cc;
-          letter-spacing: 4px;
-          text-transform: uppercase;
-          position: relative;
-          margin-bottom: 24px;
-          background: rgba(138, 180, 204, 0.06);
-          border-radius: 30px;
-          backdrop-filter: blur(12px);
-        }
-
-        .anime-hero .kanji-badge::before,
-        .anime-hero .kanji-badge::after {
-          content: '◆';
-          margin: 0 8px;
-          font-size: 0.5rem;
-          vertical-align: middle;
-        }
-
-        .anime-hero .subtitle {
-          font-size: 1.05rem;
-          color: var(--text-secondary);
-          font-weight: 300;
-          letter-spacing: 2px;
-        }
-
-        .anime-download {
-          display: inline-flex;
-          align-items: center;
-          gap: 10px;
-          margin-top: 24px;
-          padding: 14px 32px;
-          background: var(--glass-bg);
-          border: 1px solid var(--glass-border-hover);
-          border-radius: 30px;
-          color: var(--text);
-          font-family: var(--font-outfit), sans-serif;
-          font-size: 0.85rem;
-          font-weight: 600;
-          letter-spacing: 1.5px;
-          text-decoration: none;
-          text-transform: uppercase;
-          backdrop-filter: blur(16px);
-          -webkit-backdrop-filter: blur(16px);
-          transition: all 0.3s ease;
-          box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
-        }
-
-        .anime-download:hover {
-          background: rgba(138, 180, 204, 0.12);
-          border-color: rgba(138, 180, 204, 0.35);
-          box-shadow:
-            0 8px 32px rgba(138, 180, 204, 0.15),
-            inset 0 1px 0 rgba(255,255,255,0.12);
-          transform: translateY(-2px);
-        }
-
-        /* ===== NAV ===== */
-        .anime-nav {
-          position: relative;
-          z-index: 1;
-          display: flex;
-          justify-content: center;
-          gap: 8px;
-          padding: 0 20px 40px;
-          flex-wrap: wrap;
-        }
-
-        .anime-nav a {
-          font-size: 0.72rem;
-          font-weight: 600;
-          letter-spacing: 3px;
-          text-transform: uppercase;
-          color: var(--text-secondary);
-          text-decoration: none;
-          padding: 8px 20px;
-          border: 1px solid var(--skill-border);
-          border-radius: 24px;
-          transition: all 0.3s ease;
-          background: var(--skill-bg);
-          backdrop-filter: blur(12px);
-        }
-
-        .anime-nav a:hover {
-          color: var(--text);
-          border-color: var(--glass-border-hover);
-          background: var(--glass-bg);
-          box-shadow: 0 4px 20px rgba(138, 180, 204, 0.12), inset 0 1px 0 rgba(255,255,255,0.10);
-        }
-
-        /* ===== SECTION DIVIDER ===== */
-        .anime-section-divider {
-          position: relative;
-          z-index: 1;
-          display: flex;
-          align-items: center;
-          gap: 16px;
-          padding: 0 40px;
-          margin: 0 0 40px;
-        }
-
-        .anime-section-divider::before,
-        .anime-section-divider::after {
-          content: '';
-          flex: 1;
-          height: 1px;
-          background: linear-gradient(90deg, transparent, rgba(138, 180, 204, 0.35), transparent);
-        }
-
-        .anime-section-divider h2 {
-          font-family: var(--font-zen-maru), sans-serif;
-          font-size: 1.6rem;
-          font-weight: 900;
-          text-transform: uppercase;
-          letter-spacing: 6px;
-          color: #8ab4cc;
-          white-space: nowrap;
-          text-shadow: 0 0 30px rgba(138, 180, 204, 0.25);
-        }
-
-        .anime-section-divider.blue::before,
-        .anime-section-divider.blue::after {
-          background: linear-gradient(90deg, transparent, rgba(70, 140, 180, 0.35), transparent);
-        }
-        .anime-section-divider.blue h2 { color: #5a9ab5; text-shadow: 0 0 30px rgba(70, 140, 180, 0.25); }
-
-        .anime-section-divider.gold::before,
-        .anime-section-divider.gold::after {
-          background: linear-gradient(90deg, transparent, rgba(200, 160, 90, 0.35), transparent);
-        }
-        .anime-section-divider.gold h2 { color: #c8a05a; text-shadow: 0 0 30px rgba(200, 160, 90, 0.25); }
-
-        .anime-section-divider.purple::before,
-        .anime-section-divider.purple::after {
-          background: linear-gradient(90deg, transparent, rgba(120, 125, 165, 0.35), transparent);
-        }
-        .anime-section-divider.purple h2 { color: #8890b0; text-shadow: 0 0 30px rgba(120, 125, 165, 0.25); }
-
-        .anime-section-divider.green::before,
-        .anime-section-divider.green::after {
-          background: linear-gradient(90deg, transparent, rgba(60, 150, 120, 0.35), transparent);
-        }
-        .anime-section-divider.green h2 { color: #4aa888; text-shadow: 0 0 30px rgba(60, 150, 120, 0.25); }
-
-        /* ===== CONTENT WRAPPER ===== */
-        .anime-content {
-          position: relative;
-          z-index: 1;
-          max-width: 1200px;
-          margin: 0 auto;
-          padding: 0 40px 60px;
-        }
-
-        /* ===== ABOUT ===== */
-        .anime-about {
-          position: relative;
-          background: var(--glass-bg);
-          border: 1px solid var(--glass-border);
-          border-radius: 24px;
-          padding: 36px 40px;
-          margin-bottom: 60px;
-          backdrop-filter: blur(24px) saturate(1.4);
-          -webkit-backdrop-filter: blur(24px) saturate(1.4);
-          overflow: hidden;
-          line-height: 1.8;
-          font-size: 1rem;
-          color: var(--text);
-          box-shadow:
-            0 8px 32px var(--card-shadow),
-            inset 0 1px 0 var(--glass-highlight),
-            inset 0 -1px 0 rgba(255, 255, 255, 0.03);
-        }
-
-        .anime-about::before {
-          content: '';
-          position: absolute;
-          top: 0; left: 0;
-          width: 100%; height: 3px;
-          background: linear-gradient(90deg, #8ab4cc, #c8a05a, #a0b0c0);
-        }
-
-        .anime-about .about-quote-mark {
-          font-family: var(--font-zen-maru), sans-serif;
-          font-size: 4rem;
-          line-height: 1;
-          color: rgba(138, 180, 204, 0.25);
-          margin-bottom: -16px;
-          display: block;
-        }
-
-        /* ===== SKILLS ===== */
-        .anime-skills-grid {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 10px;
-          margin-bottom: 60px;
-        }
-
-        .anime-skill-tag {
-          display: inline-block;
-          font-size: 0.88rem;
-          font-weight: 600;
-          padding: 11px 24px;
-          border-radius: 30px;
-          background: var(--skill-bg);
-          border: 1px solid var(--skill-border);
-          color: var(--text);
-          transition: all 0.3s ease;
-          letter-spacing: 0.5px;
-          backdrop-filter: blur(16px);
-          -webkit-backdrop-filter: blur(16px);
-          box-shadow: inset 0 1px 0 var(--glass-highlight);
-        }
-
-        .anime-skill-tag:nth-child(4n+1) {
-          border-color: rgba(138, 180, 204, 0.30);
-          color: #8ab4cc;
-          background: rgba(138, 180, 204, 0.07);
-        }
-        .anime-skill-tag:nth-child(4n+2) {
-          border-color: rgba(90, 154, 181, 0.30);
-          color: #5a9ab5;
-          background: rgba(70, 140, 180, 0.07);
-        }
-        .anime-skill-tag:nth-child(4n+3) {
-          border-color: rgba(200, 160, 90, 0.30);
-          color: #c8a05a;
-          background: rgba(200, 160, 90, 0.07);
-        }
-        .anime-skill-tag:nth-child(4n+4) {
-          border-color: rgba(136, 144, 176, 0.30);
-          color: #8890b0;
-          background: rgba(120, 125, 165, 0.07);
-        }
-
-        .anime-skill-tag:hover {
-          transform: translateY(-2px) scale(1.05);
-          background: rgba(255, 255, 255, 0.12);
-          box-shadow: 0 8px 28px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.15);
-        }
-
-        /* ===== EXPERIENCE STACK ===== */
-        .anime-grid {
-          display: flex;
-          flex-direction: column;
-          gap: 24px;
-          margin-bottom: 60px;
-        }
-
-        .anime-card {
-          position: relative;
-          background: var(--glass-bg);
-          border: 1px solid var(--glass-border);
-          border-radius: 20px;
-          padding: 32px 36px;
-          overflow: hidden;
-          transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-          backdrop-filter: blur(24px) saturate(1.4);
-          -webkit-backdrop-filter: blur(24px) saturate(1.4);
-          box-shadow:
-            0 8px 32px var(--card-shadow),
-            inset 0 1px 0 var(--glass-highlight),
-            inset 0 -1px 0 rgba(255, 255, 255, 0.03);
-          display: flex;
-          gap: 36px;
-          align-items: flex-start;
-        }
-
-        .anime-card .card-left {
-          flex-shrink: 0;
-          width: 240px;
-          position: sticky;
-          top: 32px;
-        }
-
-        .anime-card .card-right {
-          flex: 1;
-          min-width: 0;
-        }
-
-        .anime-card::before {
-          content: '';
-          position: absolute;
-          top: 0; left: 0;
-          width: 100%; height: 3px;
-          background: var(--card-accent, linear-gradient(90deg, #8ab4cc, #5a9ab5));
-        }
-
-        .anime-card:hover {
-          transform: translateY(-6px);
-          border-color: var(--glass-border-hover);
-          box-shadow:
-            0 24px 64px var(--card-shadow),
-            0 0 40px rgba(138, 180, 204, 0.06),
-            inset 0 1px 0 var(--glass-highlight-strong);
-        }
-
-        .anime-card:nth-child(3n+2) { --card-accent: linear-gradient(90deg, #5a9ab5, #8890b0); }
-        .anime-card:nth-child(3n+3) { --card-accent: linear-gradient(90deg, #c8a05a, #8ab4cc); }
-
-        .anime-card .card-date {
-          display: inline-block;
-          background: rgba(138, 180, 204, 0.12);
-          color: #8ab4cc;
-          font-size: 0.8rem;
-          font-weight: 600;
-          padding: 6px 16px;
-          border-radius: 20px;
-          letter-spacing: 1px;
-          margin-bottom: 14px;
-        }
-
-        .anime-card:nth-child(3n+2) .card-date {
-          background: rgba(90, 154, 181, 0.12);
-          color: #5a9ab5;
-        }
-
-        .anime-card:nth-child(3n+3) .card-date {
-          background: rgba(200, 160, 90, 0.12);
-          color: #c8a05a;
-        }
-
-        .anime-card .card-role {
-          font-family: var(--font-zen-maru), sans-serif;
-          font-size: 1.3rem;
-          font-weight: 700;
-          line-height: 1.3;
-          margin-bottom: 6px;
-          color: var(--text);
-        }
-
-        .anime-card .card-company {
-          font-size: 0.88rem;
-          color: var(--text-secondary);
-          margin-bottom: 18px;
-          padding-bottom: 14px;
-          border-bottom: 1px solid var(--bullet-sep);
-        }
-
-        .anime-card .card-bullets {
-          list-style: none;
-          padding: 0;
-          margin: 0;
-        }
-
-        .anime-card .card-bullets li {
-          position: relative;
-          font-size: 1rem;
-          line-height: 1.7;
-          color: var(--text-secondary);
-          margin-bottom: 6px;
-          padding-left: 16px;
-        }
-
-        .anime-card .card-bullets li::before {
-          content: '·';
-          position: absolute;
-          left: 0;
-          color: rgba(138, 180, 204, 0.50);
-          font-weight: 700;
-          font-size: 1.2rem;
-          line-height: 1.45;
-        }
-
-        .anime-card .card-number {
-          position: absolute;
-          top: 16px; right: 20px;
-          font-family: var(--font-zen-maru), sans-serif;
-          font-size: 2.5rem;
-          font-weight: 900;
-          color: rgba(255, 255, 255, 0.05);
-          line-height: 1;
-        }
-
-        /* ===== EDUCATION CARD ===== */
-        .anime-edu-card {
-          position: relative;
-          background: var(--glass-bg);
-          border: 1px solid var(--glass-border);
-          border-radius: 20px;
-          padding: 32px 36px;
-          margin-bottom: 60px;
-          backdrop-filter: blur(24px) saturate(1.4);
-          -webkit-backdrop-filter: blur(24px) saturate(1.4);
-          overflow: hidden;
-          display: flex;
-          align-items: center;
-          gap: 28px;
-          box-shadow:
-            0 8px 32px var(--card-shadow),
-            inset 0 1px 0 var(--glass-highlight);
-        }
-
-        .anime-edu-card::before {
-          content: '';
-          position: absolute;
-          top: 0; left: 0;
-          width: 100%; height: 3px;
-          background: linear-gradient(90deg, #4aa888, #5a9ab5);
-        }
-
-        .anime-edu-icon {
-          flex-shrink: 0;
-          width: 72px; height: 72px;
-          border-radius: 50%;
-          background: rgba(74, 168, 136, 0.10);
-          border: 2px solid rgba(74, 168, 136, 0.25);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-size: 2rem;
-          color: #4aa888;
-          box-shadow: 0 0 20px rgba(60, 150, 120, 0.08);
-        }
-
-        .anime-edu-info h3 {
-          font-family: var(--font-zen-maru), sans-serif;
-          font-size: 1.3rem;
-          font-weight: 700;
-          color: var(--text);
-          margin: 0 0 6px;
-        }
-
-        .anime-edu-info .edu-degree {
-          font-size: 0.95rem;
-          color: var(--text-secondary);
-          margin-bottom: 8px;
-        }
-
-        .anime-edu-meta {
-          display: flex;
-          gap: 16px;
-          font-size: 0.82rem;
-        }
-
-        .anime-edu-meta span {
-          display: inline-flex;
-          align-items: center;
-          gap: 6px;
-          padding: 5px 14px;
-          border-radius: 20px;
-          font-weight: 600;
-        }
-
-        .anime-edu-meta .edu-year {
-          background: rgba(74, 168, 136, 0.12);
-          color: #4aa888;
-        }
-
-        .anime-edu-meta .edu-gpa {
-          background: rgba(74, 168, 136, 0.12);
-          color: #4aa888;
-        }
-
-        /* ===== CERTIFICATIONS ===== */
-        .anime-certs-grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-          gap: 20px;
-          margin-bottom: 60px;
-        }
-
-        .anime-cert-card {
-          position: relative;
-          background: var(--glass-bg);
-          border: 1px solid var(--glass-border);
-          border-radius: 20px;
-          padding: 28px;
-          backdrop-filter: blur(24px) saturate(1.4);
-          -webkit-backdrop-filter: blur(24px) saturate(1.4);
-          overflow: hidden;
-          transition: all 0.3s ease;
-          box-shadow:
-            0 8px 32px var(--card-shadow),
-            inset 0 1px 0 var(--glass-highlight);
-        }
-
-        .anime-cert-card::before {
-          content: '';
-          position: absolute;
-          top: 0; left: 0;
-          width: 100%; height: 3px;
-          background: linear-gradient(90deg, #8890b0, #5a9ab5);
-        }
-
-        .anime-cert-card:hover {
-          transform: translateY(-4px);
-          border-color: rgba(255, 255, 255, 0.2);
-          box-shadow:
-            0 16px 48px rgba(0, 0, 0, 0.3),
-            0 0 30px rgba(120, 125, 165, 0.08),
-            inset 0 1px 0 rgba(255, 255, 255, 0.12);
-        }
-
-        .anime-cert-card .cert-icon {
-          width: 48px; height: 48px;
-          border-radius: 14px;
-          background: rgba(136, 144, 176, 0.10);
-          border: 1px solid rgba(136, 144, 176, 0.22);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-size: 1.3rem;
-          margin-bottom: 16px;
-          color: #8890b0;
-          box-shadow: 0 0 16px rgba(120, 125, 165, 0.06);
-        }
-
-        .anime-cert-card h3 {
-          font-family: var(--font-zen-maru), sans-serif;
-          font-size: 1.15rem;
-          font-weight: 700;
-          color: var(--text);
-          margin: 0 0 8px;
-        }
-
-        .anime-cert-card p {
-          font-size: 0.9rem;
-          color: var(--text-secondary);
-          margin: 0;
-          line-height: 1.6;
-        }
-
-        /* ===== CONTACT ===== */
-        .anime-contact-grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-          gap: 16px;
-          margin-bottom: 60px;
-        }
-
-        .anime-contact-link {
-          display: flex;
-          align-items: center;
-          gap: 14px;
-          padding: 20px 24px;
-          background: var(--glass-bg);
-          border: 1px solid var(--glass-border);
-          border-radius: 18px;
-          text-decoration: none;
-          color: var(--text);
-          transition: all 0.3s ease;
-          backdrop-filter: blur(24px) saturate(1.4);
-          -webkit-backdrop-filter: blur(24px) saturate(1.4);
-          box-shadow:
-            0 4px 20px var(--card-shadow-light),
-            inset 0 1px 0 var(--glass-highlight);
-          overflow: hidden;
-          min-width: 0;
-        }
-
-        .anime-contact-link:hover {
-          transform: translateY(-4px);
-          border-color: rgba(255, 255, 255, 0.2);
-          box-shadow:
-            0 12px 40px rgba(0, 0, 0, 0.3),
-            inset 0 1px 0 rgba(255, 255, 255, 0.15);
-        }
-
-        .anime-contact-link .contact-icon {
-          flex-shrink: 0;
-          width: 44px; height: 44px;
-          border-radius: 12px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-size: 1.2rem;
-        }
-
-        .anime-contact-link.linkedin .contact-icon {
-          background: rgba(90, 154, 181, 0.10);
-          border: 1px solid rgba(90, 154, 181, 0.25);
-          color: #5a9ab5;
-        }
-        .anime-contact-link.linkedin:hover {
-          border-color: rgba(90, 154, 181, 0.30);
-        }
-
-        .anime-contact-link.github .contact-icon {
-          background: rgba(200, 195, 185, 0.08);
-          border: 1px solid rgba(200, 195, 185, 0.18);
-          color: #c8c3b9;
-        }
-        .anime-contact-link.github:hover {
-          border-color: rgba(200, 195, 185, 0.25);
-        }
-
-        .anime-contact-link.email .contact-icon {
-          background: rgba(138, 180, 204, 0.10);
-          border: 1px solid rgba(138, 180, 204, 0.25);
-          color: #8ab4cc;
-        }
-        .anime-contact-link.email:hover {
-          border-color: rgba(138, 180, 204, 0.30);
-        }
-
-        .anime-contact-link.youtube .contact-icon {
-          background: rgba(190, 80, 70, 0.10);
-          border: 1px solid rgba(190, 80, 70, 0.25);
-          color: #be5046;
-        }
-        .anime-contact-link.youtube:hover {
-          border-color: rgba(190, 80, 70, 0.30);
-        }
-
-        .anime-contact-link .contact-label {
-          font-weight: 600;
-          font-size: 0.95rem;
-          letter-spacing: 0.5px;
-          color: var(--text);
-        }
-
-        .anime-contact-link .contact-handle {
-          font-size: 0.8rem;
-          color: rgba(224, 221, 216, 0.45);
-          margin-top: 2px;
-          overflow: hidden;
-          text-overflow: ellipsis;
-          white-space: nowrap;
-          max-width: 100%;
-        }
-
-        /* ===== FOOTER ===== */
-        .anime-footer {
-          position: relative;
-          z-index: 1;
-          text-align: center;
-          padding: 30px 40px;
-          font-size: 0.65rem;
-          letter-spacing: 4px;
-          text-transform: uppercase;
-          color: var(--text-secondary);
-          border-top: 1px solid var(--bullet-sep);
-        }
-
-        /* ===== FLOATING SHAPES ===== */
-        .anime-shape {
-          position: fixed;
-          border-radius: 50%;
-          pointer-events: none;
-          z-index: 0;
-          animation: float-shape 8s ease-in-out infinite;
-        }
-
-        @keyframes float-shape {
-          0%, 100% { transform: translate(0, 0) rotate(0deg); }
-          25% { transform: translate(20px, -30px) rotate(5deg); }
-          50% { transform: translate(-10px, -60px) rotate(-3deg); }
-          75% { transform: translate(30px, -20px) rotate(4deg); }
+          transition: all 0.15s ease;
+        }
+
+        .brutalist-theme-toggle:hover {
+          background: #e63946;
+          border-color: #e63946;
+          color: #fff;
+          transform: translate(-3px, -3px);
+          box-shadow: 6px 6px 0 #0a0a0a;
+        }
+
+        /* ===== DARK MODE ===== */
+        .brutalist-page[data-theme="dark"] {
+          background: #1c1c1e;
+          color: #f5f5f0;
+        }
+
+        .brutalist-page[data-theme="dark"]::before {
+          background-image:
+            repeating-linear-gradient(0deg, transparent, transparent 49px, #3a3a3c 49px, #3a3a3c 50px),
+            repeating-linear-gradient(90deg, transparent, transparent 49px, #3a3a3c 49px, #3a3a3c 50px);
+        }
+
+        .brutalist-page[data-theme="dark"] .brutalist-header,
+        .brutalist-page[data-theme="dark"] .brutalist-nav,
+        .brutalist-page[data-theme="dark"] .brutalist-section-title,
+        .brutalist-page[data-theme="dark"] .brutalist-about,
+        .brutalist-page[data-theme="dark"] .brutalist-skills,
+        .brutalist-page[data-theme="dark"] .brutalist-education,
+        .brutalist-page[data-theme="dark"] .brutalist-certs,
+        .brutalist-page[data-theme="dark"] .brutalist-contact {
+          border-color: #f5f5f0;
+        }
+
+        .brutalist-page[data-theme="dark"] .brutalist-footer {
+          border-top-color: #f5f5f0;
+        }
+
+        .brutalist-page[data-theme="dark"] .brutalist-header h1 {
+          color: #f5f5f0;
+        }
+
+        .brutalist-page[data-theme="dark"] .brutalist-nav a {
+          color: #f5f5f0;
+          border-right-color: #f5f5f0;
+        }
+
+        .brutalist-page[data-theme="dark"] .brutalist-nav a:hover {
+          background: #e63946;
+          color: #fff;
+        }
+
+        .brutalist-page[data-theme="dark"] .brutalist-about-inner {
+          background: #2c2c2e;
+          border-color: #f5f5f0;
+        }
+
+        .brutalist-page[data-theme="dark"] .brutalist-about p {
+          color: #ccc;
+        }
+
+        .brutalist-page[data-theme="dark"] .brutalist-download {
+          background: #f5f5f0;
+          color: #0a0a0a;
+          border-color: #f5f5f0;
+        }
+
+        .brutalist-page[data-theme="dark"] .brutalist-download:hover {
+          background: #e63946;
+          border-color: #e63946;
+          color: #fff;
+          box-shadow: 6px 6px 0 #f5f5f0;
+        }
+
+        .brutalist-page[data-theme="dark"] .brutalist-skill:nth-child(4n+1) {
+          background: #2c2c2e;
+          color: #f5f5f0;
+          border-color: #f5f5f0;
+        }
+
+        .brutalist-page[data-theme="dark"] .brutalist-skill:nth-child(4n+2) {
+          background: #f5f5f0;
+          color: #0a0a0a;
+          border-color: #f5f5f0;
+        }
+
+        .brutalist-page[data-theme="dark"] .brutalist-skill:nth-child(4n+4) {
+          background: #2c2c2e;
+          border-color: #e63946;
+        }
+
+        .brutalist-page[data-theme="dark"] .brutalist-skill {
+          border-color: #f5f5f0;
+        }
+
+        .brutalist-page[data-theme="dark"] .timeline-line {
+          background: #f5f5f0;
+        }
+
+        .brutalist-page[data-theme="dark"] .experience-block {
+          border-bottom-color: #f5f5f0;
+        }
+
+        .brutalist-page[data-theme="dark"] .experience-block::before {
+          border-color: #f5f5f0;
+        }
+
+        .brutalist-page[data-theme="dark"] .exp-company {
+          color: #aaa;
+          border-bottom-color: #333;
+        }
+
+        .brutalist-page[data-theme="dark"] .exp-bullets li {
+          color: #ccc;
+        }
+
+        .brutalist-page[data-theme="dark"] .exp-bullets li strong {
+          color: #f5f5f0;
+        }
+
+        .brutalist-page[data-theme="dark"] .brutalist-edu-card {
+          background: #2c2c2e;
+          border-color: #f5f5f0;
+        }
+
+        .brutalist-page[data-theme="dark"] .brutalist-edu-icon {
+          background: #f5f5f0;
+          color: #0a0a0a;
+        }
+
+        .brutalist-page[data-theme="dark"] .brutalist-edu-degree {
+          color: #ccc;
+        }
+
+        .brutalist-page[data-theme="dark"] .brutalist-edu-meta span {
+          border-color: #f5f5f0;
+        }
+
+        .brutalist-page[data-theme="dark"] .brutalist-edu-meta .meta-gpa {
+          background: #f5f5f0;
+          color: #0a0a0a;
+        }
+
+        .brutalist-page[data-theme="dark"] .brutalist-cert-card {
+          background: #2c2c2e;
+          border-color: #f5f5f0;
+        }
+
+        .brutalist-page[data-theme="dark"] .brutalist-cert-card p {
+          color: #aaa;
+        }
+
+        .brutalist-page[data-theme="dark"] .brutalist-cert-icon {
+          background: #3a3a3c;
+          border-color: #f5f5f0;
+        }
+
+        .brutalist-page[data-theme="dark"] .brutalist-contact-link {
+          background: #2c2c2e;
+          color: #f5f5f0;
+          border-color: #f5f5f0;
+        }
+
+        .brutalist-page[data-theme="dark"] .brutalist-contact-link:hover {
+          background: #f5f5f0;
+          color: #0a0a0a;
+          box-shadow: 4px 4px 0 #e63946;
+        }
+
+        .brutalist-page[data-theme="dark"] .brutalist-contact-handle {
+          color: #777;
+        }
+
+        .brutalist-page[data-theme="dark"] .brutalist-contact-link:hover .brutalist-contact-handle {
+          color: rgba(10, 10, 10, 0.6);
+        }
+
+        .brutalist-page[data-theme="dark"] .brutalist-theme-toggle {
+          background: #1c1c1e;
+          color: #f5f5f0;
+          border-color: #f5f5f0;
+        }
+
+        .brutalist-page[data-theme="dark"] .brutalist-theme-toggle:hover {
+          background: #e63946;
+          border-color: #e63946;
+          color: #fff;
+          box-shadow: 6px 6px 0 #f5f5f0;
         }
 
         @media (max-width: 768px) {
-          .anime-hero { padding: 40px 20px 30px; }
-          .anime-hero .kanji-badge {
+          .brutalist-page[data-theme="dark"] .brutalist-nav a {
+            border-color: #f5f5f0;
+          }
+          .brutalist-page[data-theme="dark"] .brutalist-nav a:nth-child(3n) {
+            border-right-color: #f5f5f0;
+          }
+        }
+
+        @media (max-width: 768px) {
+          .brutalist-header { padding: 30px 20px 20px; }
+          .brutalist-header .subtitle {
+            font-size: 0.6rem;
+            letter-spacing: 3px;
+            margin-top: 12px;
+          }
+          .brutalist-download {
+            position: static;
+            margin-top: 16px;
+            padding: 12px 20px;
             font-size: 0.65rem;
-            padding: 6px 18px;
-            letter-spacing: 2px;
-            margin-bottom: 16px;
           }
-          .anime-hero .kanji-badge::before,
-          .anime-hero .kanji-badge::after {
-            font-size: 0.4rem;
-            margin: 0 4px;
-          }
-          .anime-hero h1 { font-size: clamp(2.5rem, 12vw, 4rem); }
-          .anime-hero .subtitle { font-size: 0.85rem; letter-spacing: 1px; }
-          .anime-download {
-            padding: 11px 24px;
-            font-size: 0.75rem;
-            margin-top: 18px;
-          }
-          .anime-nav {
+          .brutalist-section-title { padding: 30px 20px 15px; font-size: 1.8rem; letter-spacing: 2px; }
+          .brutalist-nav {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 6px;
-            padding: 0 20px 30px;
+            border-bottom: none;
           }
-          .anime-nav a {
-            font-size: 0.6rem;
-            padding: 8px 8px;
-            letter-spacing: 1.5px;
+          .brutalist-nav a {
+            padding: 12px 8px;
+            font-size: 0.55rem;
             text-align: center;
+            border: 1px solid #0a0a0a;
+            border-right: none;
+            letter-spacing: 2px;
           }
-          .anime-skill-tag {
-            font-size: 0.72rem;
-            padding: 6px 14px;
+          .brutalist-nav a:nth-child(3n) {
+            border-right: 1px solid #0a0a0a;
           }
-          .anime-skills-grid { gap: 6px; }
-          .anime-content { padding: 0 16px 20px; gap: 12px; }
-          .anime-section-divider {
-            padding: 0 16px;
-            margin: 0 0 20px;
+          .timeline-container { padding: 0 20px; }
+          .timeline-line { left: 50px; }
+          .experience-block { padding: 30px 0 30px 50px; }
+          .experience-block::before { left: -14px; width: 24px; height: 24px; }
+          .brutalist-idx { font-size: 2.5rem; }
+          .brutalist-about, .brutalist-skills, .brutalist-education,
+          .brutalist-certs, .brutalist-contact { padding: 20px 16px; }
+          .brutalist-about-inner { padding: 20px 16px; }
+          .brutalist-about p { font-size: 0.75rem; line-height: 1.7; }
+          .brutalist-skill {
+            font-size: 0.58rem;
+            padding: 8px 12px;
+            letter-spacing: 0.5px;
           }
-          .anime-section-divider h2 {
-            font-size: 1rem;
-            letter-spacing: 3px;
-            white-space: normal;
-            text-align: center;
-          }
-          .anime-card { flex-direction: column; gap: 16px; padding: 24px 20px; }
-          .anime-card .card-left { width: 100%; position: static; }
-          .anime-card .card-bullets li { font-size: 0.8rem; }
-          .anime-about { padding: 20px 18px; font-size: 0.85rem; }
-          .anime-edu-card { flex-direction: column; text-align: center; }
-          .anime-edu-meta { justify-content: center; }
-          .anime-contact-grid {
-            grid-template-columns: repeat(4, 1fr);
-            gap: 0;
-          }
-          .anime-contact-link {
-            justify-content: center;
-            padding: 12px;
-            background: none;
-            border: none;
-            box-shadow: none;
-            backdrop-filter: none;
-            -webkit-backdrop-filter: none;
-          }
-          .anime-contact-link:hover {
-            background: none;
-            box-shadow: none;
-          }
-          .anime-contact-link .contact-label { display: none; }
+          .exp-date { font-size: 1rem; }
+          .exp-role { font-size: 0.82rem; }
+          .exp-company { font-size: 0.7rem; }
+          .exp-bullets li { font-size: 0.72rem; }
+          .exp-bullets li strong { font-size: 0.66rem; }
+          .brutalist-edu-card { flex-direction: column; }
+          .brutalist-edu-icon { width: 100%; height: 60px; }
+          .brutalist-edu-info h3 { font-size: 1.4rem; }
+          .brutalist-edu-degree { font-size: 0.75rem; }
+          .brutalist-cert-card h3 { font-size: 1.1rem; }
+          .brutalist-cert-card p { font-size: 0.72rem; }
+          .brutalist-contact-grid { grid-template-columns: 1fr; }
+          .brutalist-contact-label { font-size: 1rem; }
+          .brutalist-contact-handle { font-size: 0.65rem; }
         }
       `}</style>
 
-      <div className={`anime-page ${outfit.variable} ${zenMaru.variable}`}>
-        {/* Floating shapes */}
-        <div
-          className="anime-shape"
-          style={{
-            width: 300,
-            height: 300,
-            top: "10%",
-            left: "-5%",
-            background:
-              "radial-gradient(circle, rgba(120,160,190,0.06), transparent 70%)",
-            animationDelay: "0s",
+      <div className={`brutalist-page ${spaceMono.variable} ${bebasNeue.variable}`}>
+        {/* Sets data-theme synchronously before first paint — prevents flash */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{if(window.matchMedia('(prefers-color-scheme: dark)').matches)document.currentScript.parentElement.dataset.theme='dark';}catch(e){}})();`,
           }}
         />
-        <div
-          className="anime-shape"
-          style={{
-            width: 250,
-            height: 250,
-            top: "50%",
-            right: "-8%",
-            background:
-              "radial-gradient(circle, rgba(70,140,180,0.05), transparent 70%)",
-            animationDelay: "2s",
-          }}
-        />
-        <div
-          className="anime-shape"
-          style={{
-            width: 200,
-            height: 200,
-            bottom: "10%",
-            left: "15%",
-            background:
-              "radial-gradient(circle, rgba(200,155,80,0.05), transparent 70%)",
-            animationDelay: "4s",
-          }}
-        />
-
-        {/* Hero */}
-        <ThemeToggle />
-        <div className="anime-hero">
-          <div className="speed-lines">
-            {[...Array(12)].map((_, i) => (
-              <div
-                key={i}
-                className="speed-line"
-                style={{
-                  transform: `rotate(${i * 30}deg)`,
-                  animationDelay: `${i * 0.25}s`,
-                }}
-              />
-            ))}
-          </div>
-
-          <div className="kanji-badge">Senior Full Stack Engineer</div>
+        <div className="brutalist-header">
           <h1>
             Kittitat
             <br />
             Upaphong
           </h1>
           <div className="subtitle">
-            10+ Years of Experience ✦ Web · Mobile · VR · Blockchain
+            Software Engineering Lead / 10+ Years / 2014—Present
           </div>
           <a
             href="/files/Kittitat_Upaphong_Resume.pdf"
             download
-            className="anime-download"
+            className="brutalist-download"
           >
             <Download size={18} />
             Download Resume
           </a>
         </div>
 
-        {/* Navigation */}
-        <nav className="anime-nav">
+        <nav className="brutalist-nav">
           <a href="#about">About</a>
           <a href="#skills">Skills</a>
           <a href="#experience">Experience</a>
           <a href="#education">Education</a>
-          <a href="#certifications">Certifications</a>
+          <a href="#certifications">Certs</a>
           <a href="#contact">Contact</a>
         </nav>
 
-        {/* About */}
-        <div id="about" className="anime-content">
-          <div className="anime-section-divider">
-            <h2>★ About ★</h2>
-          </div>
-          <div className="anime-about">
-            <span className="about-quote-mark">&ldquo;</span>
-            <strong>Software Engineering Lead</strong> with over{" "}
-            <strong>10 years of experience</strong> spanning diverse domains
-            including <strong>Web, Mobile, VR, and Blockchain</strong>. My
-            career demonstrates a proven track record with industry giants like{" "}
-            <strong>True Digital Group</strong> and <strong>PTTEP</strong>, as
-            well as scaling high-growth startups like <strong>Zanroo</strong>{" "}
-            from inception to <strong>Series-A funding</strong>. Currently{" "}
-            <strong>leading a team of 7-10 developers</strong>, I am passionate
-            about evolving traditional development workflows by integrating{" "}
-            <strong>AI-driven architectures (MCP, Sub-agents)</strong> to
-            maximize efficiency. I thrive in collaborative environments and am
-            seeking to join a team of talented, positive-minded professionals
-            where we can <strong>push technological boundaries together</strong>
-            .
+        {/* ===== ABOUT ===== */}
+        <div id="about" className="brutalist-section-title">
+          About
+        </div>
+        <div className="brutalist-about">
+          <div className="brutalist-about-inner">
+            <p>
+              <strong>Software Engineering Lead</strong> with over{" "}
+              <strong>10 years of experience</strong> spanning diverse domains
+              including <strong>Web, Mobile, VR, and Blockchain</strong>. My
+              career demonstrates a proven track record with industry giants
+              like <strong>True Digital Group</strong> and{" "}
+              <strong>PTTEP</strong>, as well as scaling high-growth startups
+              like <strong>Zanroo</strong> from inception to{" "}
+              <strong>Series-A funding</strong>. Currently{" "}
+              <strong>leading a team of 7-10 developers</strong>, I am
+              passionate about evolving traditional development workflows by
+              integrating{" "}
+              <strong>AI-driven architectures (MCP, Sub-agents)</strong> to
+              maximize efficiency. I thrive in collaborative environments and am
+              seeking to join a team of talented, positive-minded professionals
+              where we can{" "}
+              <strong>push technological boundaries together</strong>.
+            </p>
           </div>
         </div>
 
-        {/* Skills */}
-        <div id="skills" className="anime-content">
-          <div className="anime-section-divider blue">
-            <h2>★ Skills ★</h2>
-          </div>
-          <div className="anime-skills-grid">
+        {/* ===== SKILLS ===== */}
+        <div id="skills" className="brutalist-section-title">
+          Skills
+        </div>
+        <div className="brutalist-skills">
+          <div className="brutalist-skills-grid">
             {skills.map((skill) => (
-              <span key={skill} className="anime-skill-tag">
+              <div key={skill} className="brutalist-skill">
                 {skill}
-              </span>
-            ))}
-          </div>
-        </div>
-
-        {/* Experience */}
-        <div id="experience" className="anime-content">
-          <div className="anime-section-divider">
-            <h2>★ Experience ★</h2>
-          </div>
-          <div className="anime-grid">
-            {experiences.map((exp, i) => (
-              <div key={i} className="anime-card">
-                <div className="card-number">
-                  {String(i + 1).padStart(2, "0")}
-                </div>
-                <div className="card-left">
-                  <div className="card-date">
-                    {exp.startDate} — {exp.endDate}
-                  </div>
-                  <div className="card-role">{exp.role}</div>
-                  <div className="card-company">
-                    {exp.company} · {exp.location}
-                  </div>
-                </div>
-                <div className="card-right">
-                  <ul className="card-bullets">
-                    {exp.bullets.map((b, j) => (
-                      <li key={j}>{b}</li>
-                    ))}
-                  </ul>
-                </div>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Education */}
-        <div id="education" className="anime-content">
-          <div className="anime-section-divider green">
-            <h2>★ Education ★</h2>
-          </div>
-          <div className="anime-edu-card">
-            <div className="anime-edu-icon">
-              <GraduationCap size={32} />
+        {/* ===== EXPERIENCE ===== */}
+        <div id="experience" className="brutalist-section-title">
+          Experience
+        </div>
+        <div className="timeline-container">
+          <div className="timeline-line" />
+          {experiences.map((exp, i) => (
+            <div key={i} className="experience-block">
+              <div className="brutalist-idx">
+                {String(i + 1).padStart(2, "0")}
+              </div>
+              <div className="exp-date">
+                {exp.startDate} — {exp.endDate}
+              </div>
+              <div className="exp-role">{exp.role}</div>
+              <div className="exp-company">
+                {exp.company} · {exp.location}
+              </div>
+              <ul className="exp-bullets">
+                {exp.bullets.map((b, j) => (
+                  <li key={j}>{b}</li>
+                ))}
+              </ul>
             </div>
-            <div className="anime-edu-info">
+          ))}
+        </div>
+
+        {/* ===== EDUCATION ===== */}
+        <div id="education" className="brutalist-section-title">
+          Education
+        </div>
+        <div className="brutalist-education">
+          <div className="brutalist-edu-card">
+            <div className="brutalist-edu-icon">
+              <GraduationCap size={36} />
+            </div>
+            <div className="brutalist-edu-info">
               <h3>{education.institution}</h3>
-              <div className="edu-degree">{education.degree}</div>
-              <div className="anime-edu-meta">
-                <span className="edu-year">
-                  {education.startYear} — {education.endYear}
+              <div className="brutalist-edu-degree">{education.degree}</div>
+              <div className="brutalist-edu-meta">
+                <span className="meta-year">
+                  {education.startYear}–{education.endYear}
                 </span>
-                <span className="edu-gpa">GPA: {education.gpa}</span>
+                <span className="meta-gpa">GPA {education.gpa}</span>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Certifications */}
-        <div id="certifications" className="anime-content">
-          <div className="anime-section-divider purple">
-            <h2>★ Certifications & Licenses ★</h2>
-          </div>
-          <div className="anime-certs-grid">
+        {/* ===== CERTIFICATIONS ===== */}
+        <div id="certifications" className="brutalist-section-title">
+          Certifications
+        </div>
+        <div className="brutalist-certs">
+          <div className="brutalist-certs-grid">
             {certifications.map((cert) => {
               const inner = (
                 <>
-                  <div className="cert-icon">
-                    <Award size={24} />
+                  <div className="brutalist-cert-icon">
+                    <Award size={22} />
                   </div>
                   <h3>{cert.title}</h3>
                   <p>{cert.description}</p>
@@ -1188,13 +1055,13 @@ export default function JapaneseAnime() {
                   href={cert.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="anime-cert-card"
+                  className="brutalist-cert-card"
                   style={{ textDecoration: "none" }}
                 >
                   {inner}
                 </a>
               ) : (
-                <div key={cert.title} className="anime-cert-card">
+                <div key={cert.title} className="brutalist-cert-card">
                   {inner}
                 </div>
               );
@@ -1202,35 +1069,40 @@ export default function JapaneseAnime() {
           </div>
         </div>
 
-        {/* Contact */}
-        <div id="contact" className="anime-content">
-          <div className="anime-section-divider gold">
-            <h2>★ Contact ★</h2>
-          </div>
-          <div className="anime-contact-grid">
+        {/* ===== CONTACT ===== */}
+        <div id="contact" className="brutalist-section-title">
+          Contact
+        </div>
+        <div className="brutalist-contact">
+          <div className="brutalist-contact-grid">
             {contactLinks.map((link) => (
               <a
                 key={link.label}
                 href={link.url}
                 target={link.icon !== "email" ? "_blank" : undefined}
                 rel={link.icon !== "email" ? "noopener noreferrer" : undefined}
-                className={`anime-contact-link ${link.icon}`}
+                className="brutalist-contact-link"
               >
-                <div className="contact-icon">
-                  {link.icon === "linkedin" && <Linkedin size={22} />}
-                  {link.icon === "github" && <Github size={22} />}
-                  {link.icon === "email" && <Mail size={22} />}
-                  {link.icon === "youtube" && <Youtube size={22} />}
+                <div className="brutalist-contact-icon">
+                  {contactIcons[link.icon]}
                 </div>
                 <div>
-                  <div className="contact-label">{link.label}</div>
+                  <div className="brutalist-contact-label">{link.label}</div>
+                  <div className="brutalist-contact-handle">
+                    {link.icon === "email"
+                      ? "tat.kittitat@gmail.com"
+                      : link.url.replace(/https?:\/\//, "").replace(/\/$/, "")}
+                  </div>
                 </div>
               </a>
             ))}
           </div>
         </div>
 
-        <div className="anime-footer">RESUME — KITTITAT UPAPHONG</div>
+        <div className="brutalist-footer">
+          RESUME — KITTITAT UPAPHONG
+        </div>
+        <BrutalistThemeToggle />
       </div>
     </>
   );
