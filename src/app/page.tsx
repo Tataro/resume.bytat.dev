@@ -885,30 +885,32 @@ export default function BrutalistTimeline() {
           .brutalist-about, .brutalist-skills, .brutalist-education,
           .brutalist-certs, .brutalist-contact { padding: 20px 16px; }
           .brutalist-about-inner { padding: 20px 16px; }
-          .brutalist-about p { font-size: 0.75rem; line-height: 1.7; }
+          .brutalist-about p { font-size: 0.85rem; line-height: 1.75; }
           .brutalist-skill {
-            font-size: 0.58rem;
+            font-size: 0.68rem;
             padding: 8px 12px;
             letter-spacing: 0.5px;
           }
           .exp-date { font-size: 1rem; }
-          .exp-role { font-size: 0.82rem; }
-          .exp-company { font-size: 0.7rem; }
-          .exp-bullets li { font-size: 0.72rem; }
-          .exp-bullets li strong { font-size: 0.66rem; }
+          .exp-role { font-size: 0.92rem; }
+          .exp-company { font-size: 0.8rem; }
+          .exp-bullets li { font-size: 0.82rem; }
+          .exp-bullets li strong { font-size: 0.76rem; }
           .brutalist-edu-card { flex-direction: column; }
           .brutalist-edu-icon { width: 100%; height: 60px; }
           .brutalist-edu-info h3 { font-size: 1.4rem; }
-          .brutalist-edu-degree { font-size: 0.75rem; }
+          .brutalist-edu-degree { font-size: 0.85rem; }
           .brutalist-cert-card h3 { font-size: 1.1rem; }
-          .brutalist-cert-card p { font-size: 0.72rem; }
+          .brutalist-cert-card p { font-size: 0.82rem; }
           .brutalist-contact-grid { grid-template-columns: 1fr; }
           .brutalist-contact-label { font-size: 1rem; }
-          .brutalist-contact-handle { font-size: 0.65rem; }
+          .brutalist-contact-handle { font-size: 0.75rem; }
         }
       `}</style>
 
-      <div className={`brutalist-page ${spaceMono.variable} ${bebasNeue.variable}`}>
+      <div
+        className={`brutalist-page ${spaceMono.variable} ${bebasNeue.variable}`}
+      >
         {/* Sets data-theme synchronously before first paint — prevents flash */}
         <script
           dangerouslySetInnerHTML={{
@@ -1099,9 +1101,7 @@ export default function BrutalistTimeline() {
           </div>
         </div>
 
-        <div className="brutalist-footer">
-          RESUME — KITTITAT UPAPHONG
-        </div>
+        <div className="brutalist-footer">RESUME — KITTITAT UPAPHONG</div>
         <BrutalistThemeToggle />
       </div>
     </>
