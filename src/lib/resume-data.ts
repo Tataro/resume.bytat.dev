@@ -37,6 +37,11 @@ export const education = {
 
 export const certifications = [
   {
+    title: "Claude Code In Action",
+    description: "Agentic AI Development with Anthropic Claude Code",
+    url: "https://verify.skilljar.com/c/9263h86xo772",
+  },
+  {
     title: "Google AI Professional",
     description: "Generative AI & Prompt Engineering with Google Gemini",
     url: "https://www.udemy.com/certificate/UC-edaff505-a9c6-437e-9d90-95cd97ca1611",
@@ -47,8 +52,7 @@ export const certifications = [
   },
   {
     title: "Yamaha Music Foundation Grade 5",
-    description:
-      "Fundamentals & SKPC — Certified Instructor Level",
+    description: "Fundamentals & SKPC — Certified Instructor Level",
   },
 ];
 
